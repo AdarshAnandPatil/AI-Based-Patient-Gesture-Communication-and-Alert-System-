@@ -1,8 +1,18 @@
-let state = {users:[], alerts:[], reports:[], appointments:[]};
+"use strict";
+
+let state = {
+  users: [],
+  alerts: [],
+  reports: [],
+  appointments: []
+};
+
 let currentFilter = "all";
 let camera = null;
 let stream = null;
 let hands = null;
+let toastTimer = null;
+let processingFrame = false;
 
 const translations = {
   en: {
@@ -52,186 +62,1613 @@ const translations = {
   }
 };
 
-const langNames = {en:"English",kn:"Kannada",hi:"Hindi"};
-const voiceLangs = {en:"en-IN",kn:"kn-IN",hi:"hi-IN"};
+const langNames = {
+  en: "English",
+  kn: "Kannada",
+  hi: "Hindi"
+};
+
+const voiceLangs = {
+  en: "en-IN",
+  kn: "kn-IN",
+  hi: "hi-IN"
+};
 
 document.addEventListener("DOMContentLoaded", async () => {
-  document.querySelectorAll(".nav").forEach(b => b.onclick = () => showPage(b.dataset.page));
-  document.getElementById("roleSelect").onchange = updateRole;
-  document.getElementById("languageSelect").onchange = () => { renderAll(); showToast("Language changed to " + langNames[getLang()]); };
-  document.querySelectorAll(".gesture-btn").forEach(b => b.onclick = () => createAlert(b.dataset.gesture, 0.96));
-  document.querySelectorAll(".filter").forEach(b => b.onclick = () => {
-    document.querySelectorAll(".filter").forEach(x => x.classList.remove("active"));
-    b.classList.add("active"); currentFilter = b.dataset.filter; renderAlerts();
-  });
-  document.getElementById("notifyBtn").onclick = enableNotifications;
-  document.getElementById("cameraBtn").onclick = startCamera;
-  document.getElementById("stopCameraBtn").onclick = stopCamera;
-  document.getElementById("reportForm").onsubmit = uploadReport;
-  document.getElementById("appointmentForm").onsubmit = addAppointment;
+  initializeNavigation();
+  initializeRole();
+  initializeLanguage();
+  initializeGestures();
+  initializeFilters();
+  initializeButtons();
+  initializeForms();
   await refresh();
   initHands();
 });
 
-function getLang(){ return document.getElementById("languageSelect").value; }
-function showPage(id){
-  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
-  document.querySelectorAll(".nav").forEach(n=>n.classList.toggle("active",n.dataset.page===id));
-  const titles={dashboard:"Nurse Dashboard",gesture:"Gesture Communication",alerts:"Alert Center",patient:"Patient Care",reports:"Medical Reports",appointments:"Appointments",analytics:"Analytics"};
-  document.getElementById("pageTitle").textContent=titles[id] || "CareGesture AI";
-  renderAll();
+function $(id) {
+  return document.getElementById(id);
 }
-function updateRole(){
-  const role=document.getElementById("roleSelect").value;
-  const names={patient:"Patient Portal",nurse:"Nurse Dashboard",doctor:"Doctor Dashboard",admin:"Admin Dashboard"};
-  document.getElementById("roleLabel").textContent=role[0].toUpperCase()+role.slice(1);
-  document.getElementById("pageTitle").textContent=names[role];
-  showToast("Viewing " + names[role]);
+
+function setText(id, value) {
+  const element = $(id);
+  if (element) {
+    element.textContent = value;
+  }
 }
-async function refresh(){
-  try{
-    const r=await fetch("/api/state"); state=await r.json(); renderAll();
-  }catch(e){showToast("Server connection error");}
+
+function getValue(id, fallback = "") {
+  const element = $(id);
+  return element && element.value ? element.value : fallback;
 }
-function renderAll(){renderDashboard();renderAlerts();renderReports();renderAppointments();renderAnalytics();}
-function renderDashboard(){
-  const active=state.alerts.filter(a=>!["Resolved"].includes(a.status));
-  const critical=state.alerts.filter(a=>a.priority==="Critical" && a.status!=="Resolved");
-  document.getElementById("activeCount").textContent=active.length;
-  document.getElementById("criticalCount").textContent=critical.length;
-  const conf=state.alerts.filter(a=>a.confidence>0);
-  document.getElementById("confidenceStat").textContent=conf.length ? Math.round(conf.reduce((s,a)=>s+a.confidence,0)/conf.length*100)+"%" : "—";
-  const today=new Date().toDateString();
-  document.getElementById("todayCount").textContent=state.alerts.filter(a=>new Date(a.createdAt).toDateString()===today).length;
-  const recent=state.alerts.slice(0,5);
-  document.getElementById("recentAlerts").innerHTML=recent.length ? recent.map(alertHTML).join("") : '<p class="hint">No alerts yet. Open Gesture Communication to create a demo alert.</p>';
+
+function getLang() {
+  const select = $("languageSelect");
+  return select && translations[select.value]
+    ? select.value
+    : "en";
 }
-function alertHTML(a,actions=true){
-  const cls=a.status==="Resolved"?"resolved":a.priority==="Critical"?"critical":a.priority==="High"?"high":"";
-  return `<div class="alert ${cls}">
-    <div class="alert-top"><div class="alert-main"><div class="alert-icon">${iconFor(a.gesture)}</div><div><h4>${escapeHTML(a.message)}</h4><p>${escapeHTML(a.patientName)} · Room ${escapeHTML(a.room)} · Bed ${escapeHTML(a.bed)}</p></div></div><span class="badge">${escapeHTML(a.status)}</span></div>
-    <p style="margin-top:9px">Gesture: ${escapeHTML(a.gesture)} · Confidence: ${a.confidence ? Math.round(a.confidence*100)+"%" : "Manual"} · ${new Date(a.createdAt).toLocaleString()}</p>
-    ${actions ? `<div class="alert-actions">${a.status==="New"?`<button class="outline mini" onclick="alertAction('${a.id}','acknowledge')">✓ Acknowledge</button>`:""}${a.status!=="Resolved"?`<button class="outline mini" onclick="alertAction('${a.id}','resolve')">Resolve</button>`:""}${a.status!=="Resolved"&&a.priority!=="Critical"?`<button class="outline mini" onclick="alertAction('${a.id}','escalate')">🚨 Escalate</button>`:""}</div>`:""}
-  </div>`;
-}
-function renderAlerts(){
-  let arr=state.alerts;
-  if(currentFilter==="New")arr=arr.filter(a=>a.status==="New");
-  if(currentFilter==="Critical")arr=arr.filter(a=>a.priority==="Critical");
-  if(currentFilter==="Acknowledged")arr=arr.filter(a=>a.status==="Acknowledged");
-  if(currentFilter==="Resolved")arr=arr.filter(a=>a.status==="Resolved");
-  document.getElementById("alertList").innerHTML=arr.length?arr.map(a=>alertHTML(a,true)).join(""):'<p class="hint">No alerts in this filter.</p>';
-}
-async function alertAction(id,action){
-  const r=await fetch("/api/alerts/"+id,{method:"PATCH",headers:{"Content-Type":"application/json"},body:JSON.stringify({action})});
-  if(!r.ok){showToast("Could not update alert");return}
-  const a=await r.json();
-  if(action==="acknowledge") speak(translations[getLang()].ack);
-  if(action==="escalate") notifyUser("🚨 "+a.message);
-  showToast("Alert "+action+"d");
-  await refresh();
-}
-async function createAlert(type,confidence){
-  const lang=getLang(), t=translations[lang], patientId=document.getElementById("patientId").value||"P1001";
-  const room=document.getElementById("room").value||"204", bed=document.getElementById("bed").value||"3";
-  const patient=state.users.find(u=>u.id===patientId);
-  const key=type==="water"?"water":type==="food"?"food":type==="nurse"?"nurse":type==="help"?"help":type==="stop"?"stop":"emergency";
-  const priority=type==="emergency"?"Critical":type==="help"||type==="nurse"?"High":"Normal";
-  const body={patientId,patientName:patient?.name||"Demo Patient",room,bed,gesture:type,message:t[key],language:lang,priority,confidence};
-  const r=await fetch("/api/alerts",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
-  if(!r.ok){showToast("Failed to create alert");return}
-  const a=await r.json();
-  document.getElementById("detectedBadge").textContent=type.toUpperCase()+" · "+Math.round(confidence*100)+"%";
-  speak(voiceText(type,room,bed,lang));
-  notifyUser((type==="emergency"?"🚨 ":"✋ ")+a.message);
-  showToast("Alert sent to care team");
-  await refresh();
-}
-function voiceText(type,room,bed,lang){
-  const key=type==="water"?"voiceWater":type==="food"?"voiceFood":type==="nurse"?"voiceNurse":type==="help"?"voiceHelp":type==="stop"?"voiceStop":"voiceEmergency";
-  return translations[lang][key].replace("{room}",room).replace("{bed}",bed);
-}
-function speak(text){
-  if(!("speechSynthesis" in window))return;
-  window.speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(text);u.lang=voiceLangs[getLang()];u.rate=.92;
-  window.speechSynthesis.speak(u);
-}
-async function enableNotifications(){
-  if(!("Notification" in window)){showToast("Browser notifications are not supported.");return}
-  const p=await Notification.requestPermission();
-  showToast(p==="granted"?"Notifications enabled":"Notification permission not granted");
-}
-function notifyUser(text){
-  if("Notification" in window && Notification.permission==="granted") new Notification("CareGesture AI",{body:text});
-}
-function initHands(){
-  if(typeof Hands==="undefined") return;
-  hands=new Hands({locateFile:file=>`https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`});
-  hands.setOptions({maxNumHands:1,modelComplexity:1,minDetectionConfidence:.6,minTrackingConfidence:.6});
-  hands.onResults(results=>{
-    const c=document.getElementById("outputCanvas"),v=document.getElementById("inputVideo"),ctx=c.getContext("2d");
-    c.width=v.videoWidth;c.height=v.videoHeight;ctx.clearRect(0,0,c.width,c.height);
-    if(results.multiHandLandmarks?.length){
-      drawConnectors(ctx,results.multiHandLandmarks[0],HAND_CONNECTIONS,{color:"#62a0ff",lineWidth:3});
-      drawLandmarks(ctx,results.multiHandLandmarks[0],{color:"#fff",lineWidth:1});
-      const g=classifyGesture(results.multiHandLandmarks[0]);
-      if(g) {document.getElementById("detectedBadge").textContent=g.toUpperCase()+" · AI detected"; }
-    }
+
+function initializeNavigation() {
+  document.querySelectorAll(".nav").forEach(button => {
+    button.addEventListener("click", () => {
+      if (button.dataset.page) {
+        showPage(button.dataset.page);
+      }
+    });
   });
 }
-function classifyGesture(l){
-  // Lightweight demonstration classifier based on landmark geometry.
-  // For production, train/validate a dedicated gesture classifier with clinical usability testing.
-  const tips=[8,12,16,20],pips=[6,10,14,18];
-  const extended=tips.map((t,i)=>l[t].y < l[pips[i]].y);
-  const count=extended.filter(Boolean).length;
-  if(count===4)return "help";
-  if(extended[0]&&extended[1]&&!extended[2]&&!extended[3])return "food";
-  if(extended[0]&&!extended[1]&&!extended[2]&&!extended[3])return "water";
+
+function showPage(id) {
+  const page = $(id);
+
+  if (!page) {
+    return;
+  }
+
+  document.querySelectorAll(".page").forEach(element => {
+    element.classList.remove("active");
+  });
+
+  page.classList.add("active");
+
+  document.querySelectorAll(".nav").forEach(element => {
+    element.classList.toggle(
+      "active",
+      element.dataset.page === id
+    );
+  });
+
+  const titles = {
+    dashboard: "Nurse Dashboard",
+    gesture: "Gesture Communication",
+    alerts: "Alert Center",
+    patient: "Patient Care",
+    reports: "Medical Reports",
+    appointments: "Appointments",
+    analytics: "Analytics"
+  };
+
+  setText(
+    "pageTitle",
+    titles[id] || "CareGesture AI"
+  );
+
+  renderAll();
+}
+
+function initializeRole() {
+  const element = $("roleSelect");
+
+  if (element) {
+    element.addEventListener("change", updateRole);
+  }
+}
+
+function updateRole() {
+  const role = getValue("roleSelect", "nurse");
+
+  const names = {
+    patient: "Patient Portal",
+    nurse: "Nurse Dashboard",
+    doctor: "Doctor Dashboard",
+    admin: "Admin Dashboard"
+  };
+
+  setText(
+    "roleLabel",
+    role.charAt(0).toUpperCase() + role.slice(1)
+  );
+
+  setText(
+    "pageTitle",
+    names[role] || "CareGesture AI"
+  );
+
+  showToast(
+    "Viewing " + (names[role] || "CareGesture AI")
+  );
+}
+
+function initializeLanguage() {
+  const element = $("languageSelect");
+
+  if (element) {
+    element.addEventListener("change", () => {
+      renderAll();
+      showToast(
+        "Language changed to " +
+        (langNames[getLang()] || "English")
+      );
+    });
+  }
+}
+
+function initializeGestures() {
+  document.querySelectorAll(".gesture-btn").forEach(button => {
+    button.addEventListener("click", () => {
+      if (button.dataset.gesture) {
+        createAlert(button.dataset.gesture, 0.96);
+      }
+    });
+  });
+}
+
+function initializeFilters() {
+  document.querySelectorAll(".filter").forEach(button => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll(".filter").forEach(element => {
+        element.classList.remove("active");
+      });
+
+      button.classList.add("active");
+      currentFilter = button.dataset.filter || "all";
+      renderAlerts();
+    });
+  });
+}
+
+function initializeButtons() {
+  const notifyButton = $("notifyBtn");
+  const cameraButton = $("cameraBtn");
+  const stopButton = $("stopCameraBtn");
+
+  if (notifyButton) {
+    notifyButton.addEventListener(
+      "click",
+      enableNotifications
+    );
+  }
+
+  if (cameraButton) {
+    cameraButton.addEventListener(
+      "click",
+      startCamera
+    );
+  }
+
+  if (stopButton) {
+    stopButton.addEventListener(
+      "click",
+      stopCamera
+    );
+  }
+}
+
+function initializeForms() {
+  const reportForm = $("reportForm");
+  const appointmentForm = $("appointmentForm");
+
+  if (reportForm) {
+    reportForm.addEventListener(
+      "submit",
+      uploadReport
+    );
+  }
+
+  if (appointmentForm) {
+    appointmentForm.addEventListener(
+      "submit",
+      addAppointment
+    );
+  }
+}
+
+async function apiRequest(url, options = {}) {
+  try {
+    const config = {
+      ...options,
+      headers: {
+        ...(options.body instanceof FormData
+          ? {}
+          : {
+              "Content-Type": "application/json"
+            }),
+        ...(options.headers || {})
+      }
+    };
+
+    const response = await fetch(url, config);
+
+    let data = null;
+
+    try {
+      data = await response.json();
+    } catch {
+      data = null;
+    }
+
+    if (!response.ok) {
+      throw new Error(
+        data?.error ||
+        data?.message ||
+        `Request failed (${response.status})`
+      );
+    }
+
+    return data;
+  } catch (error) {
+    console.error("API error:", error);
+    throw error;
+  }
+}
+
+async function refresh() {
+  try {
+    const data = await apiRequest("/api/state");
+
+    state = {
+      users: Array.isArray(data?.users)
+        ? data.users
+        : [],
+      alerts: Array.isArray(data?.alerts)
+        ? data.alerts
+        : [],
+      reports: Array.isArray(data?.reports)
+        ? data.reports
+        : [],
+      appointments: Array.isArray(data?.appointments)
+        ? data.appointments
+        : []
+    };
+
+    renderAll();
+
+    return state;
+  } catch (error) {
+    console.error(
+      "State refresh failed:",
+      error
+    );
+
+    showToast(
+      "Server connection error. Please check the server."
+    );
+
+    renderAll();
+
+    return state;
+  }
+}
+
+function renderAll() {
+  renderDashboard();
+  renderAlerts();
+  renderReports();
+  renderAppointments();
+  renderAnalytics();
+}
+
+function renderDashboard() {
+  const alerts = Array.isArray(state.alerts)
+    ? state.alerts
+    : [];
+
+  const active = alerts.filter(
+    alert => alert.status !== "Resolved"
+  );
+
+  const critical = alerts.filter(
+    alert =>
+      alert.priority === "Critical" &&
+      alert.status !== "Resolved"
+  );
+
+  setText("activeCount", active.length);
+  setText("criticalCount", critical.length);
+
+  const confident = alerts.filter(
+    alert =>
+      typeof alert.confidence === "number" &&
+      alert.confidence > 0
+  );
+
+  if (confident.length) {
+    const average =
+      confident.reduce(
+        (sum, alert) =>
+          sum + Number(alert.confidence || 0),
+        0
+      ) / confident.length;
+
+    setText(
+      "confidenceStat",
+      Math.round(average * 100) + "%"
+    );
+  } else {
+    setText("confidenceStat", "—");
+  }
+
+  const today = new Date().toDateString();
+
+  const todayCount = alerts.filter(alert => {
+    const date = new Date(alert.createdAt);
+
+    return (
+      !Number.isNaN(date.getTime()) &&
+      date.toDateString() === today
+    );
+  }).length;
+
+  setText("todayCount", todayCount);
+
+  const recent = alerts.slice(0, 5);
+  const container = $("recentAlerts");
+
+  if (!container) {
+    return;
+  }
+
+  container.innerHTML = recent.length
+    ? recent.map(alert => alertHTML(alert)).join("")
+    : '<p class="hint">No alerts yet. Open Gesture Communication to create a demo alert.</p>';
+}
+
+function alertHTML(alert, actions = true) {
+  if (!alert) {
+    return "";
+  }
+
+  const cls =
+    alert.status === "Resolved"
+      ? "resolved"
+      : alert.priority === "Critical"
+      ? "critical"
+      : alert.priority === "High"
+      ? "high"
+      : "";
+
+  const confidence =
+    typeof alert.confidence === "number" &&
+    alert.confidence > 0
+      ? Math.round(alert.confidence * 100) + "%"
+      : "Manual";
+
+  const date = alert.createdAt
+    ? new Date(alert.createdAt)
+    : null;
+
+  const dateText =
+    date && !Number.isNaN(date.getTime())
+      ? date.toLocaleString()
+      : "";
+
+  let buttons = "";
+
+  if (actions) {
+    if (alert.status === "New") {
+      buttons += `
+        <button
+          class="outline mini"
+          onclick="alertAction('${safeJS(alert.id)}','acknowledge')"
+        >
+          ✓ Acknowledge
+        </button>
+      `;
+    }
+
+    if (alert.status !== "Resolved") {
+      buttons += `
+        <button
+          class="outline mini"
+          onclick="alertAction('${safeJS(alert.id)}','resolve')"
+        >
+          Resolve
+        </button>
+      `;
+    }
+
+    if (
+      alert.status !== "Resolved" &&
+      alert.priority !== "Critical"
+    ) {
+      buttons += `
+        <button
+          class="outline mini"
+          onclick="alertAction('${safeJS(alert.id)}','escalate')"
+        >
+          🚨 Escalate
+        </button>
+      `;
+    }
+  }
+
+  return `
+    <div class="alert ${cls}">
+      <div class="alert-top">
+        <div class="alert-main">
+          <div class="alert-icon">
+            ${iconFor(alert.gesture)}
+          </div>
+
+          <div>
+            <h4>
+              ${escapeHTML(alert.message)}
+            </h4>
+
+            <p>
+              ${escapeHTML(alert.patientName)}
+              · Room ${escapeHTML(alert.room)}
+              · Bed ${escapeHTML(alert.bed)}
+            </p>
+          </div>
+        </div>
+
+        <span class="badge">
+          ${escapeHTML(alert.status)}
+        </span>
+      </div>
+
+      <p style="margin-top:9px">
+        Gesture:
+        ${escapeHTML(alert.gesture)}
+        · Confidence:
+        ${confidence}
+        · ${escapeHTML(dateText)}
+      </p>
+
+      ${
+        actions
+          ? `
+            <div class="alert-actions">
+              ${buttons}
+            </div>
+          `
+          : ""
+      }
+    </div>
+  `;
+}
+
+function renderAlerts() {
+  const container = $("alertList");
+
+  if (!container) {
+    return;
+  }
+
+  let alerts = Array.isArray(state.alerts)
+    ? [...state.alerts]
+    : [];
+
+  if (currentFilter === "New") {
+    alerts = alerts.filter(
+      alert => alert.status === "New"
+    );
+  }
+
+  if (currentFilter === "Critical") {
+    alerts = alerts.filter(
+      alert => alert.priority === "Critical"
+    );
+  }
+
+  if (currentFilter === "Acknowledged") {
+    alerts = alerts.filter(
+      alert => alert.status === "Acknowledged"
+    );
+  }
+
+  if (currentFilter === "Resolved") {
+    alerts = alerts.filter(
+      alert => alert.status === "Resolved"
+    );
+  }
+
+  container.innerHTML = alerts.length
+    ? alerts.map(alert => alertHTML(alert)).join("")
+    : '<p class="hint">No alerts in this filter.</p>';
+}
+
+async function alertAction(id, action) {
+  if (!id || !action) {
+    return;
+  }
+
+  try {
+    const alert = await apiRequest(
+      "/api/alerts/" + encodeURIComponent(id),
+      {
+        method: "PATCH",
+        body: JSON.stringify({
+          action
+        })
+      }
+    );
+
+    if (action === "acknowledge") {
+      speak(
+        translations[getLang()].ack
+      );
+    }
+
+    if (action === "escalate") {
+      notifyUser(
+        "🚨 " +
+        (alert?.message || "Alert escalated")
+      );
+    }
+
+    showToast(
+      action === "acknowledge"
+        ? "Alert acknowledged"
+        : action === "resolve"
+        ? "Alert resolved"
+        : action === "escalate"
+        ? "Alert escalated"
+        : "Alert updated"
+    );
+
+    await refresh();
+  } catch (error) {
+    console.error(
+      "Alert action failed:",
+      error
+    );
+
+    showToast(
+      error.message ||
+      "Could not update alert"
+    );
+  }
+}
+
+async function createAlert(type, confidence = 0.96) {
+  if (!type) {
+    return;
+  }
+
+  const lang = getLang();
+  const t =
+    translations[lang] ||
+    translations.en;
+
+  const patientId =
+    getValue("patientId", "P1001");
+
+  const room =
+    getValue("room", "204");
+
+  const bed =
+    getValue("bed", "3");
+
+  const patient = state.users.find(
+    user =>
+      String(user.id) ===
+      String(patientId)
+  );
+
+  const keyMap = {
+    water: "water",
+    food: "food",
+    nurse: "nurse",
+    help: "help",
+    stop: "stop",
+    emergency: "emergency"
+  };
+
+  const key =
+    keyMap[type] ||
+    "help";
+
+  const priority =
+    type === "emergency"
+      ? "Critical"
+      : type === "help" ||
+        type === "nurse"
+      ? "High"
+      : "Normal";
+
+  const body = {
+    patientId,
+    patientName:
+      patient?.name ||
+      "Demo Patient",
+    room,
+    bed,
+    gesture: type,
+    message: t[key],
+    language: lang,
+    priority,
+    confidence:
+      Number(confidence) || 0
+  };
+
+  try {
+    const alert = await apiRequest(
+      "/api/alerts",
+      {
+        method: "POST",
+        body: JSON.stringify(body)
+      }
+    );
+
+    const badge =
+      $("detectedBadge");
+
+    if (badge) {
+      badge.textContent =
+        type.toUpperCase() +
+        " · " +
+        Math.round(
+          (Number(confidence) || 0) * 100
+        ) +
+        "%";
+    }
+
+    speak(
+      voiceText(
+        type,
+        room,
+        bed,
+        lang
+      )
+    );
+
+    notifyUser(
+      (type === "emergency"
+        ? "🚨 "
+        : "✋ ") +
+      (alert?.message || t[key])
+    );
+
+    showToast(
+      "Alert sent to care team"
+    );
+
+    await refresh();
+  } catch (error) {
+    console.error(
+      "Create alert failed:",
+      error
+    );
+
+    showToast(
+      error.message ||
+      "Failed to create alert"
+    );
+  }
+}
+
+function voiceText(
+  type,
+  room,
+  bed,
+  lang
+) {
+  const language =
+    translations[lang] ||
+    translations.en;
+
+  const keyMap = {
+    water: "voiceWater",
+    food: "voiceFood",
+    nurse: "voiceNurse",
+    help: "voiceHelp",
+    stop: "voiceStop",
+    emergency: "voiceEmergency"
+  };
+
+  const key =
+    keyMap[type] ||
+    "voiceHelp";
+
+  return language[key]
+    .replace(
+      "{room}",
+      String(room)
+    )
+    .replace(
+      "{bed}",
+      String(bed)
+    );
+}
+
+function speak(text) {
+  if (
+    !text ||
+    !("speechSynthesis" in window) ||
+    !("SpeechSynthesisUtterance" in window)
+  ) {
+    return;
+  }
+
+  try {
+    window.speechSynthesis.cancel();
+
+    const utterance =
+      new SpeechSynthesisUtterance(
+        String(text)
+      );
+
+    utterance.lang =
+      voiceLangs[getLang()] ||
+      "en-IN";
+
+    utterance.rate = 0.92;
+    utterance.pitch = 1;
+    utterance.volume = 1;
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+  } catch (error) {
+    console.warn(
+      "Speech synthesis failed:",
+      error
+    );
+  }
+}
+
+async function enableNotifications() {
+  if (!("Notification" in window)) {
+    showToast(
+      "Browser notifications are not supported."
+    );
+    return;
+  }
+
+  try {
+    const permission =
+      await Notification.requestPermission();
+
+    if (permission === "granted") {
+      showToast(
+        "Notifications enabled"
+      );
+    } else if (permission === "denied") {
+      showToast(
+        "Notification permission was denied."
+      );
+    } else {
+      showToast(
+        "Notification permission not granted"
+      );
+    }
+  } catch (error) {
+    console.error(
+      "Notification error:",
+      error
+    );
+
+    showToast(
+      "Unable to enable notifications."
+    );
+  }
+}
+
+function notifyUser(text) {
+  if (
+    !text ||
+    !("Notification" in window) ||
+    Notification.permission !== "granted"
+  ) {
+    return;
+  }
+
+  try {
+    new Notification(
+      "CareGesture AI",
+      {
+        body: String(text)
+      }
+    );
+  } catch (error) {
+    console.warn(
+      "Notification failed:",
+      error
+    );
+  }
+}
+
+function initHands() {
+  if (typeof Hands === "undefined") {
+    console.warn(
+      "MediaPipe Hands library is not loaded."
+    );
+    return;
+  }
+
+  try {
+    hands = new Hands({
+      locateFile: file =>
+        `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`
+    });
+
+    hands.setOptions({
+      maxNumHands: 1,
+      modelComplexity: 1,
+      minDetectionConfidence: 0.6,
+      minTrackingConfidence: 0.6
+    });
+
+    hands.onResults(
+      handleHandResults
+    );
+  } catch (error) {
+    console.error(
+      "MediaPipe initialization failed:",
+      error
+    );
+
+    hands = null;
+
+    showToast(
+      "Gesture AI could not be initialized."
+    );
+  }
+}
+
+function handleHandResults(results) {
+  const canvas =
+    $("outputCanvas");
+
+  const video =
+    $("inputVideo");
+
+  if (!canvas || !video) {
+    return;
+  }
+
+  const ctx =
+    canvas.getContext("2d");
+
+  if (!ctx) {
+    return;
+  }
+
+  if (
+    video.videoWidth > 0 &&
+    video.videoHeight > 0
+  ) {
+    if (
+      canvas.width !== video.videoWidth ||
+      canvas.height !== video.videoHeight
+    ) {
+      canvas.width =
+        video.videoWidth;
+
+      canvas.height =
+        video.videoHeight;
+    }
+  }
+
+  ctx.clearRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+
+  const landmarks =
+    results?.multiHandLandmarks;
+
+  if (
+    !landmarks ||
+    !landmarks.length
+  ) {
+    return;
+  }
+
+  const hand =
+    landmarks[0];
+
+  try {
+    if (
+      typeof drawConnectors === "function" &&
+      typeof HAND_CONNECTIONS !== "undefined"
+    ) {
+      drawConnectors(
+        ctx,
+        hand,
+        HAND_CONNECTIONS,
+        {
+          color: "#62a0ff",
+          lineWidth: 3
+        }
+      );
+    }
+
+    if (
+      typeof drawLandmarks === "function"
+    ) {
+      drawLandmarks(
+        ctx,
+        hand,
+        {
+          color: "#fff",
+          lineWidth: 1
+        }
+      );
+    }
+  } catch (error) {
+    console.warn(
+      "Landmark drawing failed:",
+      error
+    );
+  }
+
+  let gesture = null;
+
+  try {
+    gesture =
+      classifyGesture(hand);
+  } catch (error) {
+    console.warn(
+      "Gesture classification failed:",
+      error
+    );
+  }
+
+  if (gesture) {
+    const badge =
+      $("detectedBadge");
+
+    if (badge) {
+      badge.textContent =
+        gesture.toUpperCase() +
+        " · AI detected";
+    }
+  }
+}
+
+function classifyGesture(landmarks) {
+  if (
+    !Array.isArray(landmarks) ||
+    landmarks.length < 21
+  ) {
+    return null;
+  }
+
+  const tips = [
+    8,
+    12,
+    16,
+    20
+  ];
+
+  const pips = [
+    6,
+    10,
+    14,
+    18
+  ];
+
+  const extended =
+    tips.map(
+      (tip, index) => {
+        const tipPoint =
+          landmarks[tip];
+
+        const pipPoint =
+          landmarks[pips[index]];
+
+        if (
+          !tipPoint ||
+          !pipPoint
+        ) {
+          return false;
+        }
+
+        return (
+          tipPoint.y <
+          pipPoint.y
+        );
+      }
+    );
+
+  const count =
+    extended.filter(Boolean).length;
+
+  if (count === 4) {
+    return "help";
+  }
+
+  if (
+    extended[0] &&
+    extended[1] &&
+    !extended[2] &&
+    !extended[3]
+  ) {
+    return "food";
+  }
+
+  if (
+    extended[0] &&
+    !extended[1] &&
+    !extended[2] &&
+    !extended[3]
+  ) {
+    return "water";
+  }
+
   return null;
 }
-async function startCamera(){
-  try{
-    stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:"user"},audio:false});
-    const v=document.getElementById("inputVideo");v.srcObject=stream;document.getElementById("cameraStatus").textContent="Camera active · processing locally";
-    camera=new Camera(v,{onFrame:async()=>{if(hands)await hands.send({image:v})},width:640,height:400});camera.start();
-  }catch(e){showToast("Camera permission was denied or unavailable.");}
+
+async function startCamera() {
+  if (
+    !navigator.mediaDevices ||
+    !navigator.mediaDevices.getUserMedia
+  ) {
+    showToast(
+      "Camera access is not supported by this browser."
+    );
+    return;
+  }
+
+  if (typeof Camera === "undefined") {
+    showToast(
+      "MediaPipe Camera library is not loaded."
+    );
+    return;
+  }
+
+  if (!hands) {
+    initHands();
+  }
+
+  if (!hands) {
+    showToast(
+      "Gesture AI is unavailable."
+    );
+    return;
+  }
+
+  try {
+    stopCamera(false);
+
+    stream =
+      await navigator.mediaDevices.getUserMedia({
+        video: {
+          facingMode: "user"
+        },
+        audio: false
+      });
+
+    const video =
+      $("inputVideo");
+
+    if (!video) {
+      throw new Error(
+        "Camera video element was not found."
+      );
+    }
+
+    video.srcObject = stream;
+
+    try {
+      await video.play();
+    } catch (error) {
+      console.warn(
+        "Video playback failed:",
+        error
+      );
+    }
+
+    setText(
+      "cameraStatus",
+      "Camera active · processing locally"
+    );
+
+    camera = new Camera(
+      video,
+      {
+        onFrame: async () => {
+          if (
+            !hands ||
+            processingFrame ||
+            video.readyState < 2
+          ) {
+            return;
+          }
+
+          processingFrame = true;
+
+          try {
+            await hands.send({
+              image: video
+            });
+          } catch (error) {
+            console.error(
+              "MediaPipe frame error:",
+              error
+            );
+          } finally {
+            processingFrame = false;
+          }
+        },
+        width: 640,
+        height: 400
+      }
+    );
+
+    camera.start();
+
+    showToast(
+      "Camera started"
+    );
+  } catch (error) {
+    console.error(
+      "Camera error:",
+      error
+    );
+
+    stopCamera(false);
+
+    let message =
+      "Camera permission was denied or unavailable.";
+
+    if (
+      error?.name === "NotAllowedError"
+    ) {
+      message =
+        "Camera permission was denied.";
+    } else if (
+      error?.name === "NotFoundError"
+    ) {
+      message =
+        "No camera was found.";
+    } else if (
+      error?.name === "NotReadableError"
+    ) {
+      message =
+        "Camera is already being used by another application.";
+    }
+
+    showToast(message);
+  }
 }
-function stopCamera(){
-  if(camera)camera.stop();camera=null;
-  if(stream)stream.getTracks().forEach(t=>t.stop());stream=null;
-  document.getElementById("cameraStatus").textContent="Camera is off";
-  const c=document.getElementById("outputCanvas");c.getContext("2d").clearRect(0,0,c.width,c.height);
+
+function stopCamera(showMessage = true) {
+  try {
+    if (camera) {
+      if (
+        typeof camera.stop === "function"
+      ) {
+        camera.stop();
+      }
+
+      camera = null;
+    }
+  } catch (error) {
+    console.warn(
+      "Camera stop failed:",
+      error
+    );
+
+    camera = null;
+  }
+
+  try {
+    if (stream) {
+      stream.getTracks().forEach(track => {
+        try {
+          track.stop();
+        } catch {}
+      });
+
+      stream = null;
+    }
+  } catch {
+    stream = null;
+  }
+
+  const video =
+    $("inputVideo");
+
+  if (video) {
+    try {
+      video.pause();
+    } catch {}
+
+    video.srcObject = null;
+  }
+
+  setText(
+    "cameraStatus",
+    "Camera is off"
+  );
+
+  const canvas =
+    $("outputCanvas");
+
+  if (canvas) {
+    const ctx =
+      canvas.getContext("2d");
+
+    if (ctx) {
+      ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
+    }
+  }
+
+  processingFrame = false;
+
+  if (showMessage) {
+    showToast(
+      "Camera stopped"
+    );
+  }
 }
-async function uploadReport(e){
-  e.preventDefault();const form=new FormData(e.target);
-  const r=await fetch("/api/reports",{method:"POST",body:form});const data=await r.json();
-  if(!r.ok){showToast(data.error||"Upload failed");return}
-  e.target.reset();showToast("Report uploaded");await refresh();
+
+async function uploadReport(event) {
+  event.preventDefault();
+
+  const form =
+    event.currentTarget;
+
+  if (!form) {
+    return;
+  }
+
+  try {
+    const formData =
+      new FormData(form);
+
+    const data =
+      await apiRequest(
+        "/api/reports",
+        {
+          method: "POST",
+          body: formData
+        }
+      );
+
+    form.reset();
+
+    showToast(
+      data?.message ||
+      "Report uploaded"
+    );
+
+    await refresh();
+  } catch (error) {
+    console.error(
+      "Report upload failed:",
+      error
+    );
+
+    showToast(
+      error.message ||
+      "Upload failed"
+    );
+  }
 }
-function renderReports(){
-  document.getElementById("reportList").innerHTML=state.reports.length?state.reports.map(r=>`<div class="table-row"><span><b>${escapeHTML(r.originalName)}</b><small>${escapeHTML(r.patientId)}</small></span><span>${escapeHTML(r.type)}</span><span>${new Date(r.uploadedAt).toLocaleString()}</span><span>Intake complete</span></div>`).join(""):'<p class="hint">No reports uploaded.</p>';
+
+function renderReports() {
+  const container =
+    $("reportList");
+
+  if (!container) {
+    return;
+  }
+
+  const reports =
+    Array.isArray(state.reports)
+      ? state.reports
+      : [];
+
+  container.innerHTML =
+    reports.length
+      ? reports.map(report => {
+          const date =
+            report.uploadedAt
+              ? new Date(report.uploadedAt)
+              : null;
+
+          const dateText =
+            date &&
+            !Number.isNaN(date.getTime())
+              ? date.toLocaleString()
+              : "";
+
+          return `
+            <div class="table-row">
+              <span>
+                <b>
+                  ${escapeHTML(
+                    report.originalName
+                  )}
+                </b>
+                <small>
+                  ${escapeHTML(
+                    report.patientId
+                  )}
+                </small>
+              </span>
+
+              <span>
+                ${escapeHTML(
+                  report.type
+                )}
+              </span>
+
+              <span>
+                ${escapeHTML(
+                  dateText
+                )}
+              </span>
+
+              <span>
+                Intake complete
+              </span>
+            </div>
+          `;
+        }).join("")
+      : '<p class="hint">No reports uploaded.</p>';
 }
-async function addAppointment(e){
-  e.preventDefault();const body=Object.fromEntries(new FormData(e.target));
-  const r=await fetch("/api/appointments",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
-  if(!r.ok){showToast("Could not schedule appointment");return}
-  e.target.reset();showToast("Appointment scheduled");await refresh();
+
+async function addAppointment(event) {
+  event.preventDefault();
+
+  const form =
+    event.currentTarget;
+
+  if (!form) {
+    return;
+  }
+
+  try {
+    const formData =
+      new FormData(form);
+
+    const body =
+      Object.fromEntries(
+        formData.entries()
+      );
+
+    await apiRequest(
+      "/api/appointments",
+      {
+        method: "POST",
+        body: JSON.stringify(body)
+      }
+    );
+
+    form.reset();
+
+    showToast(
+      "Appointment scheduled"
+    );
+
+    await refresh();
+  } catch (error) {
+    console.error(
+      "Appointment error:",
+      error
+    );
+
+    showToast(
+      error.message ||
+      "Could not schedule appointment"
+    );
+  }
 }
-function renderAppointments(){
-  document.getElementById("appointmentList").innerHTML=state.appointments.length?state.appointments.map(a=>`<div class="table-row"><span><b>${escapeHTML(a.patientId)}</b></span><span>${escapeHTML(a.doctor)}</span><span>${escapeHTML(a.date)} ${escapeHTML(a.time)}</span><span>${escapeHTML(a.status)}</span></div>`).join(""):'<p class="hint">No appointments.</p>';
+
+function renderAppointments() {
+  const container =
+    $("appointmentList");
+
+  if (!container) {
+    return;
+  }
+
+  const appointments =
+    Array.isArray(state.appointments)
+      ? state.appointments
+      : [];
+
+  container.innerHTML =
+    appointments.length
+      ? appointments.map(appointment => `
+          <div class="table-row">
+            <span>
+              <b>
+                ${escapeHTML(
+                  appointment.patientId
+                )}
+              </b>
+            </span>
+
+            <span>
+              ${escapeHTML(
+                appointment.doctor
+              )}
+            </span>
+
+            <span>
+              ${escapeHTML(
+                appointment.date
+              )}
+              ${escapeHTML(
+                appointment.time
+              )}
+            </span>
+
+            <span>
+              ${escapeHTML(
+                appointment.status
+              )}
+            </span>
+          </div>
+        `).join("")
+      : '<p class="hint">No appointments.</p>';
 }
-function renderAnalytics(){
-  document.getElementById("aTotal").textContent=state.alerts.length;
-  document.getElementById("aResolved").textContent=state.alerts.filter(a=>a.status==="Resolved").length;
-  document.getElementById("aEscalated").textContent=state.alerts.filter(a=>a.status==="Escalated").length;
-  document.getElementById("aAppointments").textContent=state.appointments.length;
-  const counts={};state.alerts.forEach(a=>counts[a.gesture]=(counts[a.gesture]||0)+1);
-  const max=Math.max(1,...Object.values(counts));
-  document.getElementById("gestureBars").innerHTML=Object.keys(counts).length?Object.entries(counts).map(([k,v])=>`<div class="bar"><div style="display:flex;justify-content:space-between;font-size:12px"><span>${escapeHTML(k)}</span><b>${v}</b></div><div class="bar-line"><div class="bar-fill" style="width:${v/max*100}%"></div></div></div>`).join(""):'<p class="hint">Create gesture alerts to see analytics.</p>';
+
+function renderAnalytics() {
+  const alerts =
+    Array.isArray(state.alerts)
+      ? state.alerts
+      : [];
+
+  const appointments =
+    Array.isArray(state.appointments)
+      ? state.appointments
+      : [];
+
+  setText(
+    "aTotal",
+    alerts.length
+  );
+
+  setText(
+    "aResolved",
+    alerts.filter(
+      alert =>
+        alert.status === "Resolved"
+    ).length
+  );
+
+  setText(
+    "aEscalated",
+    alerts.filter(
+      alert =>
+        alert.status === "Escalated"
+    ).length
+  );
+
+  setText(
+    "aAppointments",
+    appointments.length
+  );
+
+  const counts = {};
+
+  alerts.forEach(alert => {
+    const gesture =
+      alert.gesture || "unknown";
+
+    counts[gesture] =
+      (counts[gesture] || 0) + 1;
+  });
+
+  const values =
+    Object.values(counts);
+
+  const max =
+    Math.max(
+      1,
+      ...values
+    );
+
+  const container =
+    $("gestureBars");
+
+  if (!container) {
+    return;
+  }
+
+  container.innerHTML =
+    Object.keys(counts).length
+      ? Object.entries(counts)
+          .map(([key, value]) => `
+            <div class="bar">
+              <div
+                style="display:flex;justify-content:space-between;font-size:12px"
+              >
+                <span>
+                  ${escapeHTML(key)}
+                </span>
+
+                <b>
+                  ${value}
+                </b>
+              </div>
+
+              <div class="bar-line">
+                <div
+                  class="bar-fill"
+                  style="width:${(value / max) * 100}%"
+                ></div>
+              </div>
+            </div>
+          `)
+          .join("")
+      : '<p class="hint">Create gesture alerts to see analytics.</p>';
 }
-function iconFor(g){return {water:"💧",food:"🍲",nurse:"🧑‍⚕️",help:"🤚",stop:"✋",emergency:"🚨"}[g]||"🔔";}
-function escapeHTML(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));}
-let toastTimer;function showToast(t){const x=document.getElementById("toast");x.textContent=t;x.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>x.classList.remove("show"),2500);}
+
+function iconFor(gesture) {
+  const icons = {
+    water: "💧",
+    food: "🍲",
+    nurse: "🧑‍⚕️",
+    help: "🤚",
+    stop: "✋",
+    emergency: "🚨"
+  };
+
+  return icons[gesture] || "🔔";
+}
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(
+    /[&<>"']/g,
+    character => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;"
+    }[character])
+  );
+}
+
+function safeJS(value) {
+  return String(value ?? "")
+    .replace(/\\/g, "\\\\")
+    .replace(/'/g, "\\'")
+    .replace(/"/g, '\\"')
+    .replace(/\r/g, "\\r")
+    .replace(/\n/g, "\\n");
+}
+
+function showToast(message) {
+  const toast =
+    $("toast");
+
+  if (!toast) {
+    return;
+  }
+
+  toast.textContent =
+    String(message || "");
+
+  toast.classList.add("show");
+
+  clearTimeout(toastTimer);
+
+  toastTimer =
+    setTimeout(() => {
+      toast.classList.remove("show");
+    }, 2500);
+}
+
+window.alertAction = alertAction;
+window.createAlert = createAlert;
+window.startCamera = startCamera;
+window.stopCamera = stopCamera;
+window.showPage = showPage;
