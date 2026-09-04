@@ -1,0 +1,4 @@
+This folder contains the Dart source and Firebase setup notes.
+From the mobile directory, run `flutter create .` once with Flutter installed.
+Then keep/replace lib/main.dart and pubspec.yaml from this package.
+After that add google-services.json as described in FIREBASE_SETUP.md.
