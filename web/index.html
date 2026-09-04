@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Patient Alert Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Smart Patient Monitoring</h1>
+      <p>Hospital Alert Dashboard</p>
+    </div>
+    <span id="connection">● Connecting...</span>
+  </header>
+
+  <main>
+    <section id="criticalBanner" class="critical hidden">🚨 CRITICAL PATIENT ALERT</section>
+
+    <section class="dashboard">
+      <div>
+        <h2>Live Patient Alerts</h2>
+        <div id="alerts"></div>
+      </div>
+
+      <aside>
+        <h3>Test Alert</h3>
+        <input id="patientId" value="P1001" placeholder="Patient ID">
+        <input id="patientName" value="Patient 1001" placeholder="Patient name">
+        <input id="room" value="204" placeholder="Room">
+        <input id="bed" value="3" placeholder="Bed">
+        <select id="request">
+          <option>NEED WATER</option>
+          <option>NEED FOOD</option>
+          <option>NEED HELP</option>
+          <option>NEED TOILET</option>
+          <option>EMERGENCY</option>
+        </select>
+        <select id="language">
+          <option value="en">English</option>
+          <option value="kn">Kannada</option>
+          <option value="hi">Hindi</option>
+        </select>
+        <select id="severity">
+          <option value="normal">Normal</option>
+          <option value="critical">Critical</option>
+        </select>
+        <button id="sendTest">Send Test Alert</button>
+      </aside>
+    </section>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
