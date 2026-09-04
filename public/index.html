@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI Patient Gesture Communication</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">✋ <span>CareGesture AI</span></div>
+    <button class="nav active" data-page="dashboard">Dashboard</button>
+    <button class="nav" data-page="gesture">Gesture Communication</button>
+    <button class="nav" data-page="alerts">Alerts</button>
+    <button class="nav" data-page="patient">Patient Care</button>
+    <button class="nav" data-page="reports">Medical Reports</button>
+    <button class="nav" data-page="appointments">Appointments</button>
+    <button class="nav" data-page="analytics">Analytics</button>
+    <div class="side-bottom">
+      <label>Role</label>
+      <select id="roleSelect">
+        <option value="patient">Patient</option>
+        <option value="nurse" selected>Nurse</option>
+        <option value="doctor">Doctor</option>
+        <option value="admin">Admin</option>
+      </select>
+      <label>Voice / Alert Language</label>
+      <select id="languageSelect">
+        <option value="en">English</option>
+        <option value="kn">ಕನ್ನಡ (Kannada)</option>
+        <option value="hi">हिन्दी (Hindi)</option>
+      </select>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">SMART HEALTHCARE</div>
+        <h1 id="pageTitle">Nurse Dashboard</h1>
+      </div>
+      <div class="top-actions">
+        <button class="outline" id="notifyBtn">🔔 Enable Notifications</button>
+        <span class="user-chip">● <span id="roleLabel">Nurse</span></span>
+      </div>
+    </header>
+
+    <section id="dashboard" class="page active">
+      <div class="hero">
+        <div>
+          <div class="pill">AI + COMPUTER VISION</div>
+          <h2>Patient communication without barriers.</h2>
+          <p>Recognize predefined hand gestures, convert them into localized assistance messages, and deliver alerts to the care team.</p>
+          <button class="primary" onclick="showPage('gesture')">Open Gesture Communication →</button>
+        </div>
+        <div class="hero-icon">🤚</div>
+      </div>
+      <div class="cards">
+        <div class="stat"><span>Active Alerts</span><strong id="activeCount">0</strong><small>Needs attention</small></div>
+        <div class="stat"><span>Critical Alerts</span><strong id="criticalCount">0</strong><small>Escalation required</small></div>
+        <div class="stat"><span>Avg. Confidence</span><strong id="confidenceStat">—</strong><small>Gesture recognition</small></div>
+        <div class="stat"><span>Today's Requests</span><strong id="todayCount">0</strong><small>Patient assistance</small></div>
+      </div>
+      <div class="grid2">
+        <div class="panel">
+          <div class="panel-head"><h3>Recent Alerts</h3><button class="text-btn" onclick="showPage('alerts')">View all</button></div>
+          <div id="recentAlerts"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>System Safety</h3></div>
+          <ul class="safety">
+            <li>AI output is decision support, not autonomous diagnosis.</li>
+            <li>Gesture confidence is shown before action.</li>
+            <li>Camera frames are processed in the browser; video is not stored by this demo.</li>
+            <li>Manual communication remains available as a fallback.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="gesture" class="page">
+      <div class="section-title"><div><h2>Gesture Communication</h2><p>Use the camera or the demo buttons to create a patient assistance alert.</p></div></div>
+      <div class="grid2">
+        <div class="panel camera-panel">
+          <div class="camera-wrap">
+            <video id="inputVideo" autoplay playsinline muted></video>
+            <canvas id="outputCanvas"></canvas>
+            <div id="cameraStatus" class="camera-status">Camera is off</div>
+          </div>
+          <div class="camera-actions">
+            <button class="primary" id="cameraBtn">Start Camera</button>
+            <button class="outline" id="stopCameraBtn">Stop</button>
+          </div>
+          <p class="hint">Camera recognition is browser-side using MediaPipe Hands. For a reliable college demo, the buttons below can also simulate validated gestures.</p>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>Gesture → Message</h3><span class="badge" id="detectedBadge">Waiting</span></div>
+          <div class="gesture-grid">
+            <button class="gesture-btn" data-gesture="water"><span>☝️</span><b>Need Water</b><small>Water assistance</small></button>
+            <button class="gesture-btn" data-gesture="food"><span>✌️</span><b>Need Food</b><small>Food assistance</small></button>
+            <button class="gesture-btn" data-gesture="nurse"><span>🤟</span><b>Need Nurse</b><small>Care assistance</small></button>
+            <button class="gesture-btn" data-gesture="help"><span>🤚</span><b>Need Help</b><small>General assistance</small></button>
+            <button class="gesture-btn" data-gesture="stop"><span>✋</span><b>Stop / No</b><small>Stop request</small></button>
+            <button class="gesture-btn" data-gesture="emergency"><span>🆘</span><b>Emergency</b><small>Critical escalation</small></button>
+          </div>
+          <div class="patient-meta">
+            <label>Patient ID <input id="patientId" value="P1001"></label>
+            <label>Room <input id="room" value="204"></label>
+            <label>Bed <input id="bed" value="3"></label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="alerts" class="page">
+      <div class="section-title"><div><h2>Alert Center</h2><p>Acknowledge, resolve, or escalate patient requests.</p></div></div>
+      <div class="filter-row">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="New">New</button>
+        <button class="filter" data-filter="Critical">Critical</button>
+        <button class="filter" data-filter="Acknowledged">Acknowledged</button>
+        <button class="filter" data-filter="Resolved">Resolved</button>
+      </div>
+      <div class="panel"><div id="alertList"></div></div>
+    </section>
+
+    <section id="patient" class="page">
+      <div class="section-title"><div><h2>Patient Care</h2><p>Current patient profile and safety information.</p></div></div>
+      <div class="grid2">
+        <div class="panel profile">
+          <div class="avatar">DP</div><h3>Demo Patient</h3><p>P1001 · General Ward</p>
+          <div class="profile-grid"><span>Room <b>204</b></span><span>Bed <b>3</b></span><span>Language <b id="patientLang">English</b></span><span>Status <b>Under Care</b></span></div>
+        </div>
+        <div class="panel">
+          <h3>AI Risk Assessment</h3>
+          <div class="risk"><span>Current demo risk level</span><strong>Moderate</strong></div>
+          <p class="hint">This demonstration score is not a medical diagnosis. A production system must use clinically validated models and clinician review.</p>
+          <button class="outline" onclick="showToast('Risk review opened for clinician verification.')">Review Assessment</button>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Emergency Triage</h3>
+        <div class="triage-grid">
+          <div><b>Critical</b><span>Breathing difficulty, severe bleeding, unresponsiveness</span></div>
+          <div><b>Urgent</b><span>Severe pain, sudden deterioration, concerning symptoms</span></div>
+          <div><b>Routine</b><span>Water, food, positioning, general assistance</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reports" class="page">
+      <div class="section-title"><div><h2>Medical Reports</h2><p>Secure document intake with a production-ready integration point for OCR and clinical NLP.</p></div></div>
+      <div class="panel">
+        <form id="reportForm">
+          <label>Patient ID <input name="patientId" value="P1001"></label>
+          <label>PDF / JPG / PNG <input type="file" name="report" accept=".pdf,.jpg,.jpeg,.png" required></label>
+          <button class="primary" type="submit">Upload Report</button>
+        </form>
+      </div>
+      <div class="panel"><div id="reportList"></div></div>
+    </section>
+
+    <section id="appointments" class="page">
+      <div class="section-title"><div><h2>Appointments</h2><p>Patient appointment scheduling.</p></div></div>
+      <div class="panel">
+        <form id="appointmentForm" class="appointment-form">
+          <input name="patientId" value="P1001" placeholder="Patient ID">
+          <input name="doctor" value="Dr. Ananya" placeholder="Doctor">
+          <input name="date" type="date" required>
+          <input name="time" type="time" required>
+          <button class="primary">Schedule</button>
+        </form>
+      </div>
+      <div class="panel"><div id="appointmentList"></div></div>
+    </section>
+
+    <section id="analytics" class="page">
+      <div class="section-title"><div><h2>Analytics</h2><p>Simple operational metrics for the demonstration.</p></div></div>
+      <div class="cards">
+        <div class="stat"><span>Total alerts</span><strong id="aTotal">0</strong></div>
+        <div class="stat"><span>Resolved</span><strong id="aResolved">0</strong></div>
+        <div class="stat"><span>Escalated</span><strong id="aEscalated">0</strong></div>
+        <div class="stat"><span>Appointments</span><strong id="aAppointments">0</strong></div>
+      </div>
+      <div class="panel">
+        <h3>Gesture request distribution</h3>
+        <div id="gestureBars"></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div id="toast" class="toast"></div>
+<script src="/app.js"></script>
+</body>
+</html>
