@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101827">
+<title>CareGesture AI - Mobile Monitor</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#142033}.top{position:sticky;top:0;z-index:10;background:#101827;color:white;padding:15px}.top-row{display:flex;justify-content:space-between;align-items:center;gap:10px}.top h1{font-size:21px;margin:0}.status{font-size:12px;margin-top:8px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#e33;margin-right:5px}.dot.ok{background:#19a15f}.wrap{max-width:700px;margin:auto;padding:14px}.panel{background:white;border:1px solid #e1e7ef;border-radius:15px;padding:16px;margin-bottom:14px}.connection{font-size:13px;color:#637187;word-break:break-all}.alert{border:2px solid #dbe2eb;border-radius:13px;padding:15px;margin:12px 0}.alert.critical{border-color:#d52e2e;background:#fff5f5}.badge{font-weight:900;font-size:13px}.message{font-size:28px;font-weight:900;margin:10px 0;line-height:1.1}.meta{color:#637187;font-size:14px}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}button{border-radius:9px;padding:10px 13px;font-weight:800;border:1px solid #d3dce8;background:white}button.primary{background:#1565d8;color:white;border:0}.empty{text-align:center;padding:50px 10px;color:#65758a}.settings{display:flex;gap:7px;margin-top:12px}.settings input{flex:1;min-width:0;padding:10px;border:1px solid #d3dce8;border-radius:9px}.error{color:#c62828;font-weight:700}.small{font-size:12px;color:#65758a}.back{color:white;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="top"><div class="top-row"><h1>📱 CareGesture AI</h1><a class="back" href="/">Web Dashboard</a></div><div class="status"><span id="dot" class="dot"></span><span id="status">Connecting…</span></div></div>
+<div class="wrap">
+<div class="panel">
+<b>Mobile Monitor</b>
+<div class="connection" id="serverUrl"></div>
+<div class="settings"><input id="serverInput" placeholder="https://your-server.onrender.com"><button class="primary" id="connect">Connect</button></div>
+<p class="small">Use the Render HTTPS address for remote monitoring. For the same Wi‑Fi network, you can enter your computer URL such as http://192.168.1.10:10000.</p>
+<div id="error" class="error"></div>
+</div>
+<div id="alerts"></div>
+</div>
+<script>
+let base=location.origin,alerts=[],spoken='';
+const $=id=>document.getElementById(id);
+function clean(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function setStatus(ok,text){$('dot').classList.toggle('ok',ok);$('status').textContent=text;$('serverUrl').textContent=base}
+async function get(path,options={}){const r=await fetch(base+path,{cache:'no-store',...options});let d={};try{d=await r.json()}catch{}if(!r.ok)throw new Error(d.detail||d.error||'Request failed');return d}
+function speak(x){if(!('speechSynthesis'in window)||!window.SpeechSynthesisUtterance)return;const u=new SpeechSynthesisUtterance(`${x.message}. Room ${x.room}. Bed ${x.bed}`);u.lang=x.language==='kn'?'kn-IN':x.language==='hi'?'hi-IN':'en-IN';speechSynthesis.cancel();speechSynthesis.speak(u)}
+function render(){
+ if(!alerts.length){$('alerts').innerHTML='<div class="panel empty">No patient alerts yet.<br>Waiting for the next gesture alert…</div>';return}
+ $('alerts').innerHTML=alerts.map(x=>`<div class="alert ${x.priority==='Critical'?'critical':''}"><div class="badge">${x.priority==='Critical'?'🚨 CRITICAL ALERT':'PATIENT ALERT'} · ${clean(x.status)}</div><div class="message">${clean(x.message)}</div><div class="meta">Patient ${clean(x.patientId)} · Room ${clean(x.room)} · Bed ${clean(x.bed)} · ${clean(x.confidence)}%</div><div class="actions"><button class="primary" data-voice="${clean(x.id)}">🔊 Voice</button><button data-action="acknowledge" data-id="${clean(x.id)}">Acknowledge</button><button data-action="resolve" data-id="${clean(x.id)}">Resolve</button><button data-action="escalate" data-id="${clean(x.id)}">Escalate</button></div></div>`).join('')
+}
+async function refresh(){try{const h=await get('/api/health');if(!h.ok)throw Error('Server health check failed');const d=await get('/api/alerts');alerts=Array.isArray(d)?d:[];setStatus(true,'Connected');$('error').textContent='';render();const n=alerts[0];if(n&&n.status==='New'&&spoken!==String(n.id)){spoken=String(n.id);speak(n)}}catch(e){setStatus(false,'Not connected');$('error').textContent=e.message||'Cannot connect to server'}}
+async function act(id,action){try{await get('/api/alerts/'+encodeURIComponent(id),{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({action})});await refresh()}catch(e){$('error').textContent=e.message}}
+$('alerts').addEventListener('click',e=>{const v=e.target.closest('[data-voice]');if(v){const x=alerts.find(a=>String(a.id)===String(v.dataset.voice));if(x)speak(x);return}const b=e.target.closest('[data-action]');if(b)act(b.dataset.id,b.dataset.action)});
+$('connect').onclick=()=>{let v=$('serverInput').value.trim().replace(/\/$/,'');if(v)base=v;localStorage.setItem('caregesture_server',base);refresh()};
+const saved=localStorage.getItem('caregesture_server');if(saved)base=saved;$('serverInput').value=base;refresh();setInterval(refresh,2000);
+</script>
+</body></html>

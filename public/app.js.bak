@@ -84,30 +84,14 @@ function overlay(a){
 async function createGestureAlert(number){
  const g=gestureMap[number];if(!g)return;
  const l=$("languageSelect").value,tx=labels[l]||labels.en,message=tx[g.key];
- // Show the result immediately. Never wait for the network before updating the UI.
- showDetection(number,true);
- const pending={
-  id:"pending-"+Date.now(),patientId:$("patientId").value,patientName:"Demo Patient",
-  room:$("room").value,bed:$("bed").value,gesture:g.name,message,language:l,
-  priority:g.priority,confidence:95,status:"Sending",createdAt:new Date().toISOString()
- };
- updateLocalAlert(pending);
- if(g.key==="emergency")overlay(pending);
  try{
-  const a=await api("/api/alerts",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({patientId:pending.patientId,patientName:pending.patientName,room:pending.room,bed:pending.bed,gesture:pending.gesture,message:pending.message,language:l,priority:g.priority,confidence:95})});
-  // Replace only the temporary item; do not interrupt the camera loop.
-  state.alerts=[a,...(state.alerts||[]).filter(x=>String(x.id)!==String(pending.id))];
-  if(activeAlert&&String(activeAlert.id)===String(pending.id)){activeAlert=a;overlay(a);}
-  notifyAlert(a);
-  render();
- }catch(e){
-  console.warn("Alert send failed",e);
-  state.alerts=(state.alerts||[]).map(x=>String(x.id)===String(pending.id)?{...x,status:"Send Failed"}:x);
-  render();
-  toast("Gesture detected, but alert could not be saved");
- }
+  const a=await api("/api/alerts",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({patientId:$("patientId").value,patientName:"Demo Patient",room:$("room").value,bed:$("bed").value,gesture:g.name,message,language:l,priority:g.priority,confidence:95})});
+  notifyAlert(a);updateLocalAlert(a);
+  showDetection(number,true);
+  // Only emergency opens the blocking modal; normal gestures stay on the live camera.
+  if(g.key==="emergency")overlay(a);
+ }catch(e){console.warn("Alert send failed",e);toast("Gesture detected, but alert could not be saved")}
 }
-
 function notifyAlert(a){if("Notification"in window&&Notification.permission==="granted")new Notification(a.priority==="Critical"?"🚨 Patient Emergency":"Patient Gesture Alert",{body:a.message})}
 function showDetection(number,sent=false){
  const g=gestureMap[number],l=$("languageSelect").value,tx=labels[l]||labels.en;if(!g)return;
@@ -131,7 +115,7 @@ function distance(a,b){return Math.hypot(a.x-b.x,a.y-b.y)}
 function angle(a,b,c){const ab={x:a.x-b.x,y:a.y-b.y},cb={x:c.x-b.x,y:c.y-b.y},dot=ab.x*cb.x+ab.y*cb.y,den=Math.hypot(ab.x,ab.y)*Math.hypot(cb.x,cb.y);return den?Math.acos(Math.max(-1,Math.min(1,dot/den)))*180/Math.PI:0}
 function fingerExtended(lm,mcp,pip,tip){return angle(lm[mcp],lm[pip],lm[tip])>150&&distance(lm[tip],lm[0])>distance(lm[pip],lm[0])*1.04}
 function countFingers(lm){let count=0;[[5,6,8],[9,10,12],[13,14,16],[17,18,20]].forEach(([m,p,t])=>{if(fingerExtended(lm,m,p,t))count++});if(fingerExtended(lm,2,3,4))count++;return count}
-let lastDetected=null,stableCounts=[],lastSentGesture=null,lastSentAt=0,lastGestureCandidate=null,lastGestureCandidateSince=0;
+let lastDetected=null,stableCounts=[],lastSentGesture=null,lastSentAt=0;
 let cameraStream=null,hands=null,cameraRunning=false,processingFrame=false,lastProcessTime=0,frameHandle=null,mediaPipeBase="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/";
 
 function updateLocalAlert(a){
@@ -181,17 +165,15 @@ function handleLandmarks(r){
  $("cameraHint").classList.add("hidden");$("cameraStatus").textContent="✋ Hand detected";
  ctx.lineWidth=3;ctx.strokeStyle="#20d46b";ctx.fillStyle="#20d46b";
  lm.forEach(p=>{ctx.beginPath();ctx.arc(p.x*c.width,p.y*c.height,4,0,Math.PI*2);ctx.fill()});
- const number=countFingers(lm);stableCounts.push(number);if(stableCounts.length>5)stableCounts.shift();
+ const number=countFingers(lm);stableCounts.push(number);if(stableCounts.length>3)stableCounts.shift();
  const freq={};stableCounts.forEach(n=>freq[n]=(freq[n]||0)+1);
  const best=Object.entries(freq).sort((a,b)=>b[1]-a[1])[0];
- if(!best||Number(best[1])<3)return;
- const detected=Number(best[0]),now=Date.now();
- if(lastGestureCandidate!==detected){lastGestureCandidate=detected;lastGestureCandidateSince=now;return;}
- // Require the same gesture to remain stable briefly. This prevents 1→2→3→4→5 noise from flooding alerts.
- if(now-lastGestureCandidateSince<450)return;
+ if(!best||Number(best[1])<2)return;
+ const detected=Number(best[0]);
  if(lastDetected!==detected){
-  lastDetected=detected;speakDetected(detected);showDetection(detected,false);
-  if(lastSentGesture!==detected||now-lastSentAt>3000){lastSentGesture=detected;lastSentAt=now;createGestureAlert(detected);}
+  lastDetected=detected;showDetection(detected,false);speakDetected(detected);
+  const now=Date.now();
+  if(lastSentGesture!==detected||now-lastSentAt>2500){lastSentGesture=detected;lastSentAt=now;createGestureAlert(detected);}
  }
 }
 
@@ -200,7 +182,7 @@ async function processVideoFrame(now){
  frameHandle=requestAnimationFrame(processVideoFrame);
  const v=$("inputVideo");
  if(v.readyState<2||!hands||processingFrame)return;
- if(now-lastProcessTime<100)return;
+ if(now-lastProcessTime<66)return;
  lastProcessTime=now;processingFrame=true;
  try{await hands.send({image:v});}catch(e){console.error("Hands frame error",e);setCameraDiagnostic("AI frame error: "+e.message);}finally{processingFrame=false;}
 }
@@ -220,7 +202,7 @@ async function startCamera(){
   hands.onResults(handleLandmarks);
   cameraStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:"user",width:{ideal:640,max:640},height:{ideal:480,max:480},frameRate:{ideal:20,max:24}},audio:false});
   v.srcObject=cameraStream;v.muted=true;v.setAttribute("playsinline","");await v.play();
-  cameraRunning=true;lastProcessTime=0;processingFrame=false;stableCounts=[];lastDetected=null;lastSentGesture=null;lastGestureCandidate=null;lastGestureCandidateSince=0;
+  cameraRunning=true;lastProcessTime=0;processingFrame=false;stableCounts=[];lastDetected=null;lastSentGesture=null;
   $("cameraStatus").textContent="Camera running — show one hand";$("aiBadge").textContent="AI RUNNING";$("aiBadge").classList.add("running");$("cameraHint").textContent="Show one hand clearly";
   setCameraDiagnostic("✓ Camera connected. AI is detecting fingers.",true);
   const l=$("languageSelect").value;$("voiceStatus").textContent=(labels[l]||labels.en).voiceReady;
@@ -243,7 +225,7 @@ function stopCamera(){
  const v=$("inputVideo");if(v)v.srcObject=null;
  if(hands){try{hands.close?.()}catch{}hands=null}
  $("cameraStatus").textContent="Camera is off";$("aiBadge").textContent="AI READY";$("aiBadge").classList.remove("running");
- stableCounts=[];lastDetected=null;lastSentGesture=null;lastGestureCandidate=null;lastGestureCandidateSince=0;
+ stableCounts=[];lastDetected=null;lastSentGesture=null;
  const l=$("languageSelect").value;$("detectedGesture").textContent=(labels[l]||labels.en).waiting;$("detectedEmoji").textContent="✋";$("detectedNeed").textContent="Show your hand to communicate";
 }
 
@@ -260,7 +242,7 @@ document.addEventListener("DOMContentLoaded",()=>{
  document.addEventListener("click",e=>{const b=e.target.closest(".act");if(b)act(b.dataset.id,b.dataset.action)});
  $("cameraBtn").onclick=startCamera;$("stopCameraBtn").onclick=stopCamera;$("copyMobileUrl").onclick=async()=>{try{await navigator.clipboard.writeText(location.origin);toast("Server URL copied")}catch{toast("Copy failed — use the URL shown above")}};
  $("reportForm").onsubmit=report;$("appointmentForm").onsubmit=appointment;
- $("closeAlertOverlay").onclick=()=>{activeAlert=null;$("alertOverlay").classList.remove("show");try{speechSynthesis.cancel()}catch{}};
+ $("closeAlertOverlay").onclick=()=>$("alertOverlay").classList.remove("show");
  $("overlayVoiceBtn").onclick=()=>activeAlert&&speak(`${activeAlert.message}. Room ${activeAlert.room}. Bed ${activeAlert.bed}`,activeAlert.language);
  $("overlayAckBtn").onclick=async()=>{if(activeAlert){await act(activeAlert.id,"acknowledge");$("alertOverlay").classList.remove("show")}};
  $("overlayResolveBtn").onclick=async()=>{if(activeAlert){await act(activeAlert.id,"resolve");$("alertOverlay").classList.remove("show")}};
