@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "skill": "C/C++",
+    "type": "Official / Learning Link",
+    "title": "C/C++ learning resources",
+    "description": "Admin-managed notes, PDFs and links for C/C++.",
+    "url": "https://www.geeksforgeeks.org/",
+    "published": true
+  },
+  {
+    "id": 2,
+    "skill": "Java",
+    "type": "Official / Learning Link",
+    "title": "Java learning resources",
+    "description": "Admin-managed notes, PDFs and links for Java.",
+    "url": "https://www.geeksforgeeks.org/",
+    "published": true
+  },
+  {
+    "id": 3,
+    "skill": "Python",
+    "type": "Official / Learning Link",
+    "title": "Python learning resources",
+    "description": "Admin-managed notes, PDFs and links for Python.",
+    "url": "https://www.geeksforgeeks.org/",
+    "published": true
+  },
+  {
+    "id": 4,
+    "skill": "JavaScript",
+    "type": "Official / Learning Link",
+    "title": "JavaScript learning resources",
+    "description": "Admin-managed notes, PDFs and links for JavaScript.",
+    "url": "https://www.geeksforgeeks.org/",
+    "published": true
+  },
+  {
+    "id": 5,
+    "skill": "HTML/CSS",
+    "type": "Official / Learning Link",
+    "title": "HTML/CSS learning resources",
+    "description": "Admin-managed notes, PDFs and links for HTML/CSS.",
+    "url": "https://www.geeksforgeeks.org/",
+    "published": true
+  },
+  {
+    "id": 6,
+    "skill": "SQL",
+    "type": "Official / Learning Link",
+    "title": "SQL learning resources",
+    "description": "Admin-managed notes, PDFs and links for SQL.",
+    "url": "https://www.geeksforgeeks.org/",
+    "published": true
+  },
+  {
+    "id": 7,
+    "skill": "DSA",
+    "type": "Official / Learning Link",
+    "title": "DSA learning resources",
+    "description": "Admin-managed notes, PDFs and links for DSA.",
+    "url": "https://www.geeksforgeeks.org/",
+    "published": true
+  },
+  {
+    "id": 8,
+    "skill": "DBMS",
+    "type": "Official / Learning Link",
+    "title": "DBMS learning resources",
+    "description": "Admin-managed notes, PDFs and links for DBMS.",
+    "url": "https://www.geeksforgeeks.org/",
+    "published": true
+  },
+  {
+    "id": 9,
+    "skill": "OS",
+    "type": "Official / Learning Link",
+    "title": "OS learning resources",
+    "description": "Admin-managed notes, PDFs and links for OS.",
+    "url": "https://www.geeksforgeeks.org/",
+    "published": true
+  },
+  {
+    "id": 10,
+    "skill": "CN",
+    "type": "Official / Learning Link",
+    "title": "CN learning resources",
+    "description": "Admin-managed notes, PDFs and links for CN.",
+    "url": "https://www.geeksforgeeks.org/",
+    "published": true
+  },
+  {
+    "id": 11,
+    "skill": "OOP",
+    "type": "Official / Learning Link",
+    "title": "OOP learning resources",
+    "description": "Admin-managed notes, PDFs and links for OOP.",
+    "url": "https://www.geeksforgeeks.org/",
+    "published": true
+  },
+  {
+    "id": 12,
+    "skill": "Web Development",
+    "type": "Official / Learning Link",
+    "title": "Web Development learning resources",
+    "description": "Admin-managed notes, PDFs and links for Web Development.",
+    "url": "https://www.geeksforgeeks.org/",
+    "published": true
+  },
+  {
+    "id": 13,
+    "skill": "AI/ML",
+    "type": "Official / Learning Link",
+    "title": "AI/ML learning resources",
+    "description": "Admin-managed notes, PDFs and links for AI/ML.",
+    "url": "https://www.geeksforgeeks.org/",
+    "published": true
+  },
+  {
+    "id": 14,
+    "skill": "Cloud",
+    "type": "Official / Learning Link",
+    "title": "Cloud learning resources",
+    "description": "Admin-managed notes, PDFs and links for Cloud.",
+    "url": "https://www.geeksforgeeks.org/",
+    "published": true
+  },
+  {
+    "id": 15,
+    "skill": "Cybersecurity",
+    "type": "Official / Learning Link",
+    "title": "Cybersecurity learning resources",
+    "description": "Admin-managed notes, PDFs and links for Cybersecurity.",
+    "url": "https://www.geeksforgeeks.org/",
+    "published": true
+  },
+  {
+    "id": 16,
+    "skill": "Embedded/VLSI",
+    "type": "Official / Learning Link",
+    "title": "Embedded/VLSI learning resources",
+    "description": "Admin-managed notes, PDFs and links for Embedded/VLSI.",
+    "url": "https://www.geeksforgeeks.org/",
+    "published": true
+  }
+]

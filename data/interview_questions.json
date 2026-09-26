@@ -1,0 +1,422 @@
+[
+  {
+    "id": 1,
+    "category": "HR",
+    "question": "Tell me about yourself.",
+    "answer": "Give a concise truthful answer using your education, skills, projects and goals.",
+    "explanation": "Use a clear structure and a short example when appropriate."
+  },
+  {
+    "id": 2,
+    "category": "HR",
+    "question": "Why should we hire you?",
+    "answer": "Give a concise truthful answer using your education, skills, projects and goals.",
+    "explanation": "Use a clear structure and a short example when appropriate."
+  },
+  {
+    "id": 3,
+    "category": "HR",
+    "question": "Why do you want to join our company?",
+    "answer": "Give a concise truthful answer using your education, skills, projects and goals.",
+    "explanation": "Use a clear structure and a short example when appropriate."
+  },
+  {
+    "id": 4,
+    "category": "HR",
+    "question": "What are your strengths?",
+    "answer": "Give a concise truthful answer using your education, skills, projects and goals.",
+    "explanation": "Use a clear structure and a short example when appropriate."
+  },
+  {
+    "id": 5,
+    "category": "HR",
+    "question": "What is one weakness you are improving?",
+    "answer": "Give a concise truthful answer using your education, skills, projects and goals.",
+    "explanation": "Use a clear structure and a short example when appropriate."
+  },
+  {
+    "id": 6,
+    "category": "HR",
+    "question": "Where do you see yourself in five years?",
+    "answer": "Give a concise truthful answer using your education, skills, projects and goals.",
+    "explanation": "Use a clear structure and a short example when appropriate."
+  },
+  {
+    "id": 7,
+    "category": "HR",
+    "question": "Why did you choose engineering?",
+    "answer": "Give a concise truthful answer using your education, skills, projects and goals.",
+    "explanation": "Use a clear structure and a short example when appropriate."
+  },
+  {
+    "id": 8,
+    "category": "HR",
+    "question": "Are you willing to relocate?",
+    "answer": "Give a concise truthful answer using your education, skills, projects and goals.",
+    "explanation": "Use a clear structure and a short example when appropriate."
+  },
+  {
+    "id": 9,
+    "category": "HR",
+    "question": "How do you handle pressure?",
+    "answer": "Give a concise truthful answer using your education, skills, projects and goals.",
+    "explanation": "Use a clear structure and a short example when appropriate."
+  },
+  {
+    "id": 10,
+    "category": "HR",
+    "question": "Tell me about a failure and what you learned.",
+    "answer": "Give a concise truthful answer using your education, skills, projects and goals.",
+    "explanation": "Use a clear structure and a short example when appropriate."
+  },
+  {
+    "id": 11,
+    "category": "HR",
+    "question": "How do you resolve a team conflict?",
+    "answer": "Give a concise truthful answer using your education, skills, projects and goals.",
+    "explanation": "Use a clear structure and a short example when appropriate."
+  },
+  {
+    "id": 12,
+    "category": "HR",
+    "question": "How do you manage deadlines?",
+    "answer": "Give a concise truthful answer using your education, skills, projects and goals.",
+    "explanation": "Use a clear structure and a short example when appropriate."
+  },
+  {
+    "id": 13,
+    "category": "HR",
+    "question": "Describe a leadership experience.",
+    "answer": "Give a concise truthful answer using your education, skills, projects and goals.",
+    "explanation": "Use a clear structure and a short example when appropriate."
+  },
+  {
+    "id": 14,
+    "category": "HR",
+    "question": "What are your career goals?",
+    "answer": "Give a concise truthful answer using your education, skills, projects and goals.",
+    "explanation": "Use a clear structure and a short example when appropriate."
+  },
+  {
+    "id": 15,
+    "category": "HR",
+    "question": "Why should we select you?",
+    "answer": "Give a concise truthful answer using your education, skills, projects and goals.",
+    "explanation": "Use a clear structure and a short example when appropriate."
+  },
+  {
+    "id": 16,
+    "category": "Java",
+    "question": "Explain OOP principles.",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 17,
+    "category": "Java",
+    "question": "Difference between JDK, JRE and JVM.",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 18,
+    "category": "Java",
+    "question": "What is exception handling?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 19,
+    "category": "Java",
+    "question": "ArrayList vs LinkedList?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 20,
+    "category": "Python",
+    "question": "List vs tuple?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 21,
+    "category": "Python",
+    "question": "What are decorators?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 22,
+    "category": "Python",
+    "question": "What is a dictionary?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 23,
+    "category": "Python",
+    "question": "Explain exception handling.",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 24,
+    "category": "SQL",
+    "question": "What is normalization?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 25,
+    "category": "SQL",
+    "question": "INNER JOIN vs LEFT JOIN?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 26,
+    "category": "SQL",
+    "question": "Write a second-highest salary query.",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 27,
+    "category": "SQL",
+    "question": "WHERE vs HAVING?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 28,
+    "category": "DSA",
+    "question": "What is time complexity?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 29,
+    "category": "DSA",
+    "question": "Array vs linked list?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 30,
+    "category": "DSA",
+    "question": "Stack vs queue?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 31,
+    "category": "DSA",
+    "question": "What is binary search?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 32,
+    "category": "DBMS",
+    "question": "What is a primary key?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 33,
+    "category": "DBMS",
+    "question": "What is indexing?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 34,
+    "category": "DBMS",
+    "question": "Explain ACID properties.",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 35,
+    "category": "DBMS",
+    "question": "What is a transaction?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 36,
+    "category": "OS",
+    "question": "Process vs thread?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 37,
+    "category": "OS",
+    "question": "What is deadlock?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 38,
+    "category": "OS",
+    "question": "What is virtual memory?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 39,
+    "category": "OS",
+    "question": "What is scheduling?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 40,
+    "category": "CN",
+    "question": "TCP vs UDP?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 41,
+    "category": "CN",
+    "question": "What is DNS?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 42,
+    "category": "CN",
+    "question": "HTTP vs HTTPS?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 43,
+    "category": "CN",
+    "question": "What is an IP address?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 44,
+    "category": "OOP",
+    "question": "Encapsulation vs abstraction?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 45,
+    "category": "OOP",
+    "question": "Inheritance types?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 46,
+    "category": "OOP",
+    "question": "Polymorphism?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 47,
+    "category": "OOP",
+    "question": "Interface vs class?",
+    "answer": "Define the concept, give a small example and mention practical use.",
+    "explanation": "Review the corresponding Technical Skills resource before the interview."
+  },
+  {
+    "id": 48,
+    "category": "Project",
+    "question": "Explain your project.",
+    "answer": "Explain the problem, architecture, technology, your contribution, testing and result.",
+    "explanation": "Be ready for follow-up questions about design and trade-offs."
+  },
+  {
+    "id": 49,
+    "category": "Project",
+    "question": "What problem does your project solve?",
+    "answer": "Explain the problem, architecture, technology, your contribution, testing and result.",
+    "explanation": "Be ready for follow-up questions about design and trade-offs."
+  },
+  {
+    "id": 50,
+    "category": "Project",
+    "question": "Why did you choose this project?",
+    "answer": "Explain the problem, architecture, technology, your contribution, testing and result.",
+    "explanation": "Be ready for follow-up questions about design and trade-offs."
+  },
+  {
+    "id": 51,
+    "category": "Project",
+    "question": "What was your role?",
+    "answer": "Explain the problem, architecture, technology, your contribution, testing and result.",
+    "explanation": "Be ready for follow-up questions about design and trade-offs."
+  },
+  {
+    "id": 52,
+    "category": "Project",
+    "question": "Explain the architecture.",
+    "answer": "Explain the problem, architecture, technology, your contribution, testing and result.",
+    "explanation": "Be ready for follow-up questions about design and trade-offs."
+  },
+  {
+    "id": 53,
+    "category": "Project",
+    "question": "Why did you choose these technologies?",
+    "answer": "Explain the problem, architecture, technology, your contribution, testing and result.",
+    "explanation": "Be ready for follow-up questions about design and trade-offs."
+  },
+  {
+    "id": 54,
+    "category": "Project",
+    "question": "What database did you use and why?",
+    "answer": "Explain the problem, architecture, technology, your contribution, testing and result.",
+    "explanation": "Be ready for follow-up questions about design and trade-offs."
+  },
+  {
+    "id": 55,
+    "category": "Project",
+    "question": "What was the hardest technical issue?",
+    "answer": "Explain the problem, architecture, technology, your contribution, testing and result.",
+    "explanation": "Be ready for follow-up questions about design and trade-offs."
+  },
+  {
+    "id": 56,
+    "category": "Project",
+    "question": "How did you test it?",
+    "answer": "Explain the problem, architecture, technology, your contribution, testing and result.",
+    "explanation": "Be ready for follow-up questions about design and trade-offs."
+  },
+  {
+    "id": 57,
+    "category": "Project",
+    "question": "How would you scale it?",
+    "answer": "Explain the problem, architecture, technology, your contribution, testing and result.",
+    "explanation": "Be ready for follow-up questions about design and trade-offs."
+  },
+  {
+    "id": 58,
+    "category": "Project",
+    "question": "What security measures did you use?",
+    "answer": "Explain the problem, architecture, technology, your contribution, testing and result.",
+    "explanation": "Be ready for follow-up questions about design and trade-offs."
+  },
+  {
+    "id": 59,
+    "category": "Project",
+    "question": "What would you improve?",
+    "answer": "Explain the problem, architecture, technology, your contribution, testing and result.",
+    "explanation": "Be ready for follow-up questions about design and trade-offs."
+  },
+  {
+    "id": 60,
+    "category": "Project",
+    "question": "How would you deploy it?",
+    "answer": "Explain the problem, architecture, technology, your contribution, testing and result.",
+    "explanation": "Be ready for follow-up questions about design and trade-offs."
+  }
+]

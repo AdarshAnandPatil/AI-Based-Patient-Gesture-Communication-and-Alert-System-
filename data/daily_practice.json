@@ -1,0 +1,1402 @@
+[
+  {
+    "id": 1,
+    "category": "Aptitude",
+    "topic": "Aptitude",
+    "question": "What is 20% of 250?",
+    "options": [
+      "40",
+      "50",
+      "60",
+      "70"
+    ],
+    "answer": "50",
+    "explanation": "20/100 \u00d7 250 = 50."
+  },
+  {
+    "id": 2,
+    "category": "Aptitude",
+    "topic": "Aptitude",
+    "question": "If a:b=2:3 and b:c=3:4, a:c is?",
+    "options": [
+      "1:2",
+      "2:4",
+      "2:3",
+      "3:4"
+    ],
+    "answer": "1:2",
+    "explanation": "Make b common: 2:3 and 3:4 gives 2:4 = 1:2."
+  },
+  {
+    "id": 3,
+    "category": "Aptitude",
+    "topic": "Aptitude",
+    "question": "A train travels 120 km in 2 hours. Speed?",
+    "options": [
+      "40",
+      "50",
+      "60",
+      "80"
+    ],
+    "answer": "60",
+    "explanation": "Speed = distance/time = 60 km/h."
+  },
+  {
+    "id": 4,
+    "category": "Aptitude",
+    "topic": "Aptitude",
+    "question": "Average of 10,20,30 is?",
+    "options": [
+      "15",
+      "20",
+      "25",
+      "30"
+    ],
+    "answer": "20",
+    "explanation": "Sum divided by count = 60/3 = 20."
+  },
+  {
+    "id": 5,
+    "category": "Aptitude",
+    "topic": "Aptitude",
+    "question": "If CP=100 and SP=120, profit %?",
+    "options": [
+      "10",
+      "15",
+      "20",
+      "25"
+    ],
+    "answer": "20",
+    "explanation": "Profit percentage = 20/100 \u00d7 100 = 20%."
+  },
+  {
+    "id": 6,
+    "category": "Aptitude",
+    "topic": "Aptitude",
+    "question": "Simple interest on 1000 at 10% for 2 years?",
+    "options": [
+      "100",
+      "150",
+      "200",
+      "250"
+    ],
+    "answer": "200",
+    "explanation": "SI = PRT/100 = 200."
+  },
+  {
+    "id": 7,
+    "category": "Aptitude",
+    "topic": "Aptitude",
+    "question": "LCM of 6 and 8?",
+    "options": [
+      "12",
+      "18",
+      "24",
+      "48"
+    ],
+    "answer": "24",
+    "explanation": "24 is the smallest common multiple."
+  },
+  {
+    "id": 8,
+    "category": "Aptitude",
+    "topic": "Aptitude",
+    "question": "Probability of heads on a fair coin?",
+    "options": [
+      "1/4",
+      "1/2",
+      "1",
+      "2"
+    ],
+    "answer": "1/2",
+    "explanation": "One favorable outcome among two."
+  },
+  {
+    "id": 9,
+    "category": "Aptitude",
+    "topic": "Aptitude",
+    "question": "15% of 200?",
+    "options": [
+      "20",
+      "30",
+      "40",
+      "50"
+    ],
+    "answer": "30",
+    "explanation": "0.15 \u00d7 200 = 30."
+  },
+  {
+    "id": 10,
+    "category": "Aptitude",
+    "topic": "Aptitude",
+    "question": "If work is completed in 10 days, one-day work is?",
+    "options": [
+      "1/5",
+      "1/10",
+      "10",
+      "100"
+    ],
+    "answer": "1/10",
+    "explanation": "One day completes one-tenth of the work."
+  },
+  {
+    "id": 11,
+    "category": "Aptitude",
+    "topic": "Aptitude",
+    "question": "A number increased by 10% from 200 becomes?",
+    "options": [
+      "210",
+      "220",
+      "230",
+      "240"
+    ],
+    "answer": "220",
+    "explanation": "Add 20 to 200."
+  },
+  {
+    "id": 12,
+    "category": "Aptitude",
+    "topic": "Aptitude",
+    "question": "2,4,8,16, next?",
+    "options": [
+      "20",
+      "24",
+      "32",
+      "36"
+    ],
+    "answer": "32",
+    "explanation": "Multiply by 2."
+  },
+  {
+    "id": 13,
+    "category": "Aptitude",
+    "topic": "Aptitude",
+    "question": "If 5 workers take 12 days, 10 workers take?",
+    "options": [
+      "3",
+      "6",
+      "12",
+      "24"
+    ],
+    "answer": "6",
+    "explanation": "Workers and days are inversely proportional."
+  },
+  {
+    "id": 14,
+    "category": "Aptitude",
+    "topic": "Aptitude",
+    "question": "Ratio 3:5 total 64, first part?",
+    "options": [
+      "18",
+      "24",
+      "30",
+      "40"
+    ],
+    "answer": "24",
+    "explanation": "3/8 \u00d7 64 = 24."
+  },
+  {
+    "id": 15,
+    "category": "Aptitude",
+    "topic": "Aptitude",
+    "question": "25% discount on 800 gives?",
+    "options": [
+      "500",
+      "550",
+      "600",
+      "650"
+    ],
+    "answer": "600",
+    "explanation": "Discount is 200, so price is 600."
+  },
+  {
+    "id": 16,
+    "category": "Aptitude",
+    "topic": "Aptitude",
+    "question": "Median of 2,4,6,8,10?",
+    "options": [
+      "4",
+      "6",
+      "8",
+      "10"
+    ],
+    "answer": "6",
+    "explanation": "The middle value is 6."
+  },
+  {
+    "id": 17,
+    "category": "Aptitude",
+    "topic": "Aptitude",
+    "question": "If x+5=12, x=?",
+    "options": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "answer": "7",
+    "explanation": "Subtract 5."
+  },
+  {
+    "id": 18,
+    "category": "Aptitude",
+    "topic": "Aptitude",
+    "question": "Compound interest means?",
+    "options": [
+      "Only principal",
+      "Interest on interest",
+      "No interest",
+      "Fixed discount"
+    ],
+    "answer": "Interest on interest",
+    "explanation": "Later interest is calculated on accumulated amount."
+  },
+  {
+    "id": 19,
+    "category": "Aptitude",
+    "topic": "Aptitude",
+    "question": "A right angle is?",
+    "options": [
+      "45\u00b0",
+      "60\u00b0",
+      "90\u00b0",
+      "180\u00b0"
+    ],
+    "answer": "90\u00b0",
+    "explanation": "A right angle measures 90 degrees."
+  },
+  {
+    "id": 20,
+    "category": "Aptitude",
+    "topic": "Aptitude",
+    "question": "If 3 pens cost 45, one costs?",
+    "options": [
+      "10",
+      "15",
+      "20",
+      "25"
+    ],
+    "answer": "15",
+    "explanation": "45 divided by 3 is 15."
+  },
+  {
+    "id": 1,
+    "category": "Technical",
+    "topic": "Technical",
+    "question": "Which SQL clause filters grouped results?",
+    "options": [
+      "WHERE",
+      "GROUP BY",
+      "HAVING",
+      "ORDER BY"
+    ],
+    "answer": "HAVING",
+    "explanation": "HAVING filters groups after GROUP BY."
+  },
+  {
+    "id": 2,
+    "category": "Technical",
+    "topic": "Technical",
+    "question": "Which data structure is FIFO?",
+    "options": [
+      "Stack",
+      "Queue",
+      "Tree",
+      "Graph"
+    ],
+    "answer": "Queue",
+    "explanation": "Queue is First In, First Out."
+  },
+  {
+    "id": 3,
+    "category": "Technical",
+    "topic": "Technical",
+    "question": "Which OOP feature hides implementation details?",
+    "options": [
+      "Inheritance",
+      "Abstraction",
+      "Overloading",
+      "Compilation"
+    ],
+    "answer": "Abstraction",
+    "explanation": "Abstraction hides implementation details."
+  },
+  {
+    "id": 4,
+    "category": "Technical",
+    "topic": "Technical",
+    "question": "Which protocol is connection-oriented?",
+    "options": [
+      "UDP",
+      "TCP",
+      "IP",
+      "DNS"
+    ],
+    "answer": "TCP",
+    "explanation": "TCP provides connection-oriented reliable delivery."
+  },
+  {
+    "id": 5,
+    "category": "Technical",
+    "topic": "Technical",
+    "question": "Which keyword creates a subclass in Java?",
+    "options": [
+      "implements",
+      "extends",
+      "inherits",
+      "superclass"
+    ],
+    "answer": "extends",
+    "explanation": "A class extends another class."
+  },
+  {
+    "id": 6,
+    "category": "Technical",
+    "topic": "Technical",
+    "question": "Which SQL command retrieves data?",
+    "options": [
+      "SELECT",
+      "INSERT",
+      "UPDATE",
+      "DELETE"
+    ],
+    "answer": "SELECT",
+    "explanation": "SELECT retrieves rows."
+  },
+  {
+    "id": 7,
+    "category": "Technical",
+    "topic": "Technical",
+    "question": "Which search is O(log n) on sorted data?",
+    "options": [
+      "Linear",
+      "Binary",
+      "Bubble",
+      "DFS"
+    ],
+    "answer": "Binary",
+    "explanation": "Binary search halves the search space."
+  },
+  {
+    "id": 8,
+    "category": "Technical",
+    "topic": "Technical",
+    "question": "Which memory is volatile?",
+    "options": [
+      "ROM",
+      "RAM",
+      "SSD",
+      "HDD"
+    ],
+    "answer": "RAM",
+    "explanation": "RAM loses data without power."
+  },
+  {
+    "id": 9,
+    "category": "Technical",
+    "topic": "Technical",
+    "question": "Which HTTP status means Not Found?",
+    "options": [
+      "200",
+      "301",
+      "404",
+      "500"
+    ],
+    "answer": "404",
+    "explanation": "404 means the resource was not found."
+  },
+  {
+    "id": 10,
+    "category": "Technical",
+    "topic": "Technical",
+    "question": "API stands for?",
+    "options": [
+      "Application Programming Interface",
+      "Applied Program Internet",
+      "Application Process Input",
+      "Advanced Programming Instruction"
+    ],
+    "answer": "Application Programming Interface",
+    "explanation": "An API defines communication between software components."
+  },
+  {
+    "id": 11,
+    "category": "Technical",
+    "topic": "Technical",
+    "question": "Which Python type is immutable?",
+    "options": [
+      "list",
+      "set",
+      "dictionary",
+      "tuple"
+    ],
+    "answer": "tuple",
+    "explanation": "Tuples are immutable."
+  },
+  {
+    "id": 12,
+    "category": "Technical",
+    "topic": "Technical",
+    "question": "Which normal form removes partial dependency?",
+    "options": [
+      "1NF",
+      "2NF",
+      "3NF",
+      "BCNF"
+    ],
+    "answer": "2NF",
+    "explanation": "2NF removes partial dependency."
+  },
+  {
+    "id": 13,
+    "category": "Technical",
+    "topic": "Technical",
+    "question": "Which is not an OOP principle?",
+    "options": [
+      "Encapsulation",
+      "Inheritance",
+      "Polymorphism",
+      "Compilation"
+    ],
+    "answer": "Compilation",
+    "explanation": "Compilation is not an OOP principle."
+  },
+  {
+    "id": 14,
+    "category": "Technical",
+    "topic": "Technical",
+    "question": "Which device forwards packets between networks?",
+    "options": [
+      "Switch",
+      "Router",
+      "Hub",
+      "Repeater"
+    ],
+    "answer": "Router",
+    "explanation": "Routers connect and forward between networks."
+  },
+  {
+    "id": 15,
+    "category": "Technical",
+    "topic": "Technical",
+    "question": "Which Git command downloads a repository?",
+    "options": [
+      "git push",
+      "git clone",
+      "git merge",
+      "git status"
+    ],
+    "answer": "git clone",
+    "explanation": "git clone copies a remote repository."
+  },
+  {
+    "id": 10015,
+    "category": "Technical",
+    "topic": "Technical",
+    "question": "Which SQL clause filters grouped results? (Practice Set 16)",
+    "options": [
+      "WHERE",
+      "GROUP BY",
+      "HAVING",
+      "ORDER BY"
+    ],
+    "answer": "HAVING",
+    "explanation": "HAVING filters groups after GROUP BY."
+  },
+  {
+    "id": 10016,
+    "category": "Technical",
+    "topic": "Technical",
+    "question": "Which data structure is FIFO? (Practice Set 17)",
+    "options": [
+      "Stack",
+      "Queue",
+      "Tree",
+      "Graph"
+    ],
+    "answer": "Queue",
+    "explanation": "Queue is First In, First Out."
+  },
+  {
+    "id": 10017,
+    "category": "Technical",
+    "topic": "Technical",
+    "question": "Which OOP feature hides implementation details? (Practice Set 18)",
+    "options": [
+      "Inheritance",
+      "Abstraction",
+      "Overloading",
+      "Compilation"
+    ],
+    "answer": "Abstraction",
+    "explanation": "Abstraction hides implementation details."
+  },
+  {
+    "id": 10018,
+    "category": "Technical",
+    "topic": "Technical",
+    "question": "Which protocol is connection-oriented? (Practice Set 19)",
+    "options": [
+      "UDP",
+      "TCP",
+      "IP",
+      "DNS"
+    ],
+    "answer": "TCP",
+    "explanation": "TCP provides connection-oriented reliable delivery."
+  },
+  {
+    "id": 10019,
+    "category": "Technical",
+    "topic": "Technical",
+    "question": "Which keyword creates a subclass in Java? (Practice Set 20)",
+    "options": [
+      "implements",
+      "extends",
+      "inherits",
+      "superclass"
+    ],
+    "answer": "extends",
+    "explanation": "A class extends another class."
+  },
+  {
+    "id": 1,
+    "category": "Communication & English",
+    "topic": "Communication & English",
+    "question": "Choose the correct sentence.",
+    "options": [
+      "He go to college.",
+      "He goes to college.",
+      "He going college.",
+      "He gone college."
+    ],
+    "answer": "He goes to college.",
+    "explanation": "Third-person singular uses goes."
+  },
+  {
+    "id": 2,
+    "category": "Communication & English",
+    "topic": "Communication & English",
+    "question": "Synonym of rapid?",
+    "options": [
+      "Slow",
+      "Fast",
+      "Weak",
+      "Late"
+    ],
+    "answer": "Fast",
+    "explanation": "Rapid means fast."
+  },
+  {
+    "id": 3,
+    "category": "Communication & English",
+    "topic": "Communication & English",
+    "question": "Antonym of expand?",
+    "options": [
+      "Increase",
+      "Grow",
+      "Contract",
+      "Extend"
+    ],
+    "answer": "Contract",
+    "explanation": "Contract means become smaller."
+  },
+  {
+    "id": 4,
+    "category": "Communication & English",
+    "topic": "Communication & English",
+    "question": "Professional interview greeting?",
+    "options": [
+      "Hey dude",
+      "Good morning, thank you for the opportunity.",
+      "What?",
+      "Yo"
+    ],
+    "answer": "Good morning, thank you for the opportunity.",
+    "explanation": "Use polite professional language."
+  },
+  {
+    "id": 10004,
+    "category": "Communication & English",
+    "topic": "Communication & English",
+    "question": "Choose the correct sentence. (Practice Set 5)",
+    "options": [
+      "He go to college.",
+      "He goes to college.",
+      "He going college.",
+      "He gone college."
+    ],
+    "answer": "He goes to college.",
+    "explanation": "Third-person singular uses goes."
+  },
+  {
+    "id": 10005,
+    "category": "Communication & English",
+    "topic": "Communication & English",
+    "question": "Synonym of rapid? (Practice Set 6)",
+    "options": [
+      "Slow",
+      "Fast",
+      "Weak",
+      "Late"
+    ],
+    "answer": "Fast",
+    "explanation": "Rapid means fast."
+  },
+  {
+    "id": 10006,
+    "category": "Communication & English",
+    "topic": "Communication & English",
+    "question": "Antonym of expand? (Practice Set 7)",
+    "options": [
+      "Increase",
+      "Grow",
+      "Contract",
+      "Extend"
+    ],
+    "answer": "Contract",
+    "explanation": "Contract means become smaller."
+  },
+  {
+    "id": 10007,
+    "category": "Communication & English",
+    "topic": "Communication & English",
+    "question": "Professional interview greeting? (Practice Set 8)",
+    "options": [
+      "Hey dude",
+      "Good morning, thank you for the opportunity.",
+      "What?",
+      "Yo"
+    ],
+    "answer": "Good morning, thank you for the opportunity.",
+    "explanation": "Use polite professional language."
+  },
+  {
+    "id": 10008,
+    "category": "Communication & English",
+    "topic": "Communication & English",
+    "question": "Choose the correct sentence. (Practice Set 9)",
+    "options": [
+      "He go to college.",
+      "He goes to college.",
+      "He going college.",
+      "He gone college."
+    ],
+    "answer": "He goes to college.",
+    "explanation": "Third-person singular uses goes."
+  },
+  {
+    "id": 10009,
+    "category": "Communication & English",
+    "topic": "Communication & English",
+    "question": "Synonym of rapid? (Practice Set 10)",
+    "options": [
+      "Slow",
+      "Fast",
+      "Weak",
+      "Late"
+    ],
+    "answer": "Fast",
+    "explanation": "Rapid means fast."
+  },
+  {
+    "id": 10010,
+    "category": "Communication & English",
+    "topic": "Communication & English",
+    "question": "Antonym of expand? (Practice Set 11)",
+    "options": [
+      "Increase",
+      "Grow",
+      "Contract",
+      "Extend"
+    ],
+    "answer": "Contract",
+    "explanation": "Contract means become smaller."
+  },
+  {
+    "id": 10011,
+    "category": "Communication & English",
+    "topic": "Communication & English",
+    "question": "Professional interview greeting? (Practice Set 12)",
+    "options": [
+      "Hey dude",
+      "Good morning, thank you for the opportunity.",
+      "What?",
+      "Yo"
+    ],
+    "answer": "Good morning, thank you for the opportunity.",
+    "explanation": "Use polite professional language."
+  },
+  {
+    "id": 10012,
+    "category": "Communication & English",
+    "topic": "Communication & English",
+    "question": "Choose the correct sentence. (Practice Set 5) (Practice Set 13)",
+    "options": [
+      "He go to college.",
+      "He goes to college.",
+      "He going college.",
+      "He gone college."
+    ],
+    "answer": "He goes to college.",
+    "explanation": "Third-person singular uses goes."
+  },
+  {
+    "id": 10013,
+    "category": "Communication & English",
+    "topic": "Communication & English",
+    "question": "Synonym of rapid? (Practice Set 6) (Practice Set 14)",
+    "options": [
+      "Slow",
+      "Fast",
+      "Weak",
+      "Late"
+    ],
+    "answer": "Fast",
+    "explanation": "Rapid means fast."
+  },
+  {
+    "id": 10014,
+    "category": "Communication & English",
+    "topic": "Communication & English",
+    "question": "Antonym of expand? (Practice Set 7) (Practice Set 15)",
+    "options": [
+      "Increase",
+      "Grow",
+      "Contract",
+      "Extend"
+    ],
+    "answer": "Contract",
+    "explanation": "Contract means become smaller."
+  },
+  {
+    "id": 10015,
+    "category": "Communication & English",
+    "topic": "Communication & English",
+    "question": "Professional interview greeting? (Practice Set 8) (Practice Set 16)",
+    "options": [
+      "Hey dude",
+      "Good morning, thank you for the opportunity.",
+      "What?",
+      "Yo"
+    ],
+    "answer": "Good morning, thank you for the opportunity.",
+    "explanation": "Use polite professional language."
+  },
+  {
+    "id": 10016,
+    "category": "Communication & English",
+    "topic": "Communication & English",
+    "question": "Choose the correct sentence. (Practice Set 17)",
+    "options": [
+      "He go to college.",
+      "He goes to college.",
+      "He going college.",
+      "He gone college."
+    ],
+    "answer": "He goes to college.",
+    "explanation": "Third-person singular uses goes."
+  },
+  {
+    "id": 10017,
+    "category": "Communication & English",
+    "topic": "Communication & English",
+    "question": "Synonym of rapid? (Practice Set 18)",
+    "options": [
+      "Slow",
+      "Fast",
+      "Weak",
+      "Late"
+    ],
+    "answer": "Fast",
+    "explanation": "Rapid means fast."
+  },
+  {
+    "id": 10018,
+    "category": "Communication & English",
+    "topic": "Communication & English",
+    "question": "Antonym of expand? (Practice Set 19)",
+    "options": [
+      "Increase",
+      "Grow",
+      "Contract",
+      "Extend"
+    ],
+    "answer": "Contract",
+    "explanation": "Contract means become smaller."
+  },
+  {
+    "id": 10019,
+    "category": "Communication & English",
+    "topic": "Communication & English",
+    "question": "Professional interview greeting? (Practice Set 20)",
+    "options": [
+      "Hey dude",
+      "Good morning, thank you for the opportunity.",
+      "What?",
+      "Yo"
+    ],
+    "answer": "Good morning, thank you for the opportunity.",
+    "explanation": "Use polite professional language."
+  },
+  {
+    "id": 1,
+    "category": "Company Preparation",
+    "topic": "Company Preparation",
+    "question": "Why do you want to join the company?",
+    "options": [
+      "Because it is famous",
+      "Connect your skills and goals to the role",
+      "Because everyone applies",
+      "No reason"
+    ],
+    "answer": "Connect your skills and goals to the role",
+    "explanation": "A strong answer connects skills, role interest and learning goals."
+  },
+  {
+    "id": 2,
+    "category": "Company Preparation",
+    "topic": "Company Preparation",
+    "question": "What should you research before an interview?",
+    "options": [
+      "Only salary",
+      "Company, role, products/services and official information",
+      "Nothing",
+      "Only office location"
+    ],
+    "answer": "Company, role, products/services and official information",
+    "explanation": "Use official company sources for current information."
+  },
+  {
+    "id": 10002,
+    "category": "Company Preparation",
+    "topic": "Company Preparation",
+    "question": "Why do you want to join the company? (Practice Set 3)",
+    "options": [
+      "Because it is famous",
+      "Connect your skills and goals to the role",
+      "Because everyone applies",
+      "No reason"
+    ],
+    "answer": "Connect your skills and goals to the role",
+    "explanation": "A strong answer connects skills, role interest and learning goals."
+  },
+  {
+    "id": 10003,
+    "category": "Company Preparation",
+    "topic": "Company Preparation",
+    "question": "What should you research before an interview? (Practice Set 4)",
+    "options": [
+      "Only salary",
+      "Company, role, products/services and official information",
+      "Nothing",
+      "Only office location"
+    ],
+    "answer": "Company, role, products/services and official information",
+    "explanation": "Use official company sources for current information."
+  },
+  {
+    "id": 10004,
+    "category": "Company Preparation",
+    "topic": "Company Preparation",
+    "question": "Why do you want to join the company? (Practice Set 5)",
+    "options": [
+      "Because it is famous",
+      "Connect your skills and goals to the role",
+      "Because everyone applies",
+      "No reason"
+    ],
+    "answer": "Connect your skills and goals to the role",
+    "explanation": "A strong answer connects skills, role interest and learning goals."
+  },
+  {
+    "id": 10005,
+    "category": "Company Preparation",
+    "topic": "Company Preparation",
+    "question": "What should you research before an interview? (Practice Set 6)",
+    "options": [
+      "Only salary",
+      "Company, role, products/services and official information",
+      "Nothing",
+      "Only office location"
+    ],
+    "answer": "Company, role, products/services and official information",
+    "explanation": "Use official company sources for current information."
+  },
+  {
+    "id": 10006,
+    "category": "Company Preparation",
+    "topic": "Company Preparation",
+    "question": "Why do you want to join the company? (Practice Set 3) (Practice Set 7)",
+    "options": [
+      "Because it is famous",
+      "Connect your skills and goals to the role",
+      "Because everyone applies",
+      "No reason"
+    ],
+    "answer": "Connect your skills and goals to the role",
+    "explanation": "A strong answer connects skills, role interest and learning goals."
+  },
+  {
+    "id": 10007,
+    "category": "Company Preparation",
+    "topic": "Company Preparation",
+    "question": "What should you research before an interview? (Practice Set 4) (Practice Set 8)",
+    "options": [
+      "Only salary",
+      "Company, role, products/services and official information",
+      "Nothing",
+      "Only office location"
+    ],
+    "answer": "Company, role, products/services and official information",
+    "explanation": "Use official company sources for current information."
+  },
+  {
+    "id": 10008,
+    "category": "Company Preparation",
+    "topic": "Company Preparation",
+    "question": "Why do you want to join the company? (Practice Set 9)",
+    "options": [
+      "Because it is famous",
+      "Connect your skills and goals to the role",
+      "Because everyone applies",
+      "No reason"
+    ],
+    "answer": "Connect your skills and goals to the role",
+    "explanation": "A strong answer connects skills, role interest and learning goals."
+  },
+  {
+    "id": 10009,
+    "category": "Company Preparation",
+    "topic": "Company Preparation",
+    "question": "What should you research before an interview? (Practice Set 10)",
+    "options": [
+      "Only salary",
+      "Company, role, products/services and official information",
+      "Nothing",
+      "Only office location"
+    ],
+    "answer": "Company, role, products/services and official information",
+    "explanation": "Use official company sources for current information."
+  },
+  {
+    "id": 10010,
+    "category": "Company Preparation",
+    "topic": "Company Preparation",
+    "question": "Why do you want to join the company? (Practice Set 3) (Practice Set 11)",
+    "options": [
+      "Because it is famous",
+      "Connect your skills and goals to the role",
+      "Because everyone applies",
+      "No reason"
+    ],
+    "answer": "Connect your skills and goals to the role",
+    "explanation": "A strong answer connects skills, role interest and learning goals."
+  },
+  {
+    "id": 10011,
+    "category": "Company Preparation",
+    "topic": "Company Preparation",
+    "question": "What should you research before an interview? (Practice Set 4) (Practice Set 12)",
+    "options": [
+      "Only salary",
+      "Company, role, products/services and official information",
+      "Nothing",
+      "Only office location"
+    ],
+    "answer": "Company, role, products/services and official information",
+    "explanation": "Use official company sources for current information."
+  },
+  {
+    "id": 10012,
+    "category": "Company Preparation",
+    "topic": "Company Preparation",
+    "question": "Why do you want to join the company? (Practice Set 5) (Practice Set 13)",
+    "options": [
+      "Because it is famous",
+      "Connect your skills and goals to the role",
+      "Because everyone applies",
+      "No reason"
+    ],
+    "answer": "Connect your skills and goals to the role",
+    "explanation": "A strong answer connects skills, role interest and learning goals."
+  },
+  {
+    "id": 10013,
+    "category": "Company Preparation",
+    "topic": "Company Preparation",
+    "question": "What should you research before an interview? (Practice Set 6) (Practice Set 14)",
+    "options": [
+      "Only salary",
+      "Company, role, products/services and official information",
+      "Nothing",
+      "Only office location"
+    ],
+    "answer": "Company, role, products/services and official information",
+    "explanation": "Use official company sources for current information."
+  },
+  {
+    "id": 10014,
+    "category": "Company Preparation",
+    "topic": "Company Preparation",
+    "question": "Why do you want to join the company? (Practice Set 3) (Practice Set 7) (Practice Set 15)",
+    "options": [
+      "Because it is famous",
+      "Connect your skills and goals to the role",
+      "Because everyone applies",
+      "No reason"
+    ],
+    "answer": "Connect your skills and goals to the role",
+    "explanation": "A strong answer connects skills, role interest and learning goals."
+  },
+  {
+    "id": 10015,
+    "category": "Company Preparation",
+    "topic": "Company Preparation",
+    "question": "What should you research before an interview? (Practice Set 4) (Practice Set 8) (Practice Set 16)",
+    "options": [
+      "Only salary",
+      "Company, role, products/services and official information",
+      "Nothing",
+      "Only office location"
+    ],
+    "answer": "Company, role, products/services and official information",
+    "explanation": "Use official company sources for current information."
+  },
+  {
+    "id": 10016,
+    "category": "Company Preparation",
+    "topic": "Company Preparation",
+    "question": "Why do you want to join the company? (Practice Set 17)",
+    "options": [
+      "Because it is famous",
+      "Connect your skills and goals to the role",
+      "Because everyone applies",
+      "No reason"
+    ],
+    "answer": "Connect your skills and goals to the role",
+    "explanation": "A strong answer connects skills, role interest and learning goals."
+  },
+  {
+    "id": 10017,
+    "category": "Company Preparation",
+    "topic": "Company Preparation",
+    "question": "What should you research before an interview? (Practice Set 18)",
+    "options": [
+      "Only salary",
+      "Company, role, products/services and official information",
+      "Nothing",
+      "Only office location"
+    ],
+    "answer": "Company, role, products/services and official information",
+    "explanation": "Use official company sources for current information."
+  },
+  {
+    "id": 10018,
+    "category": "Company Preparation",
+    "topic": "Company Preparation",
+    "question": "Why do you want to join the company? (Practice Set 3) (Practice Set 19)",
+    "options": [
+      "Because it is famous",
+      "Connect your skills and goals to the role",
+      "Because everyone applies",
+      "No reason"
+    ],
+    "answer": "Connect your skills and goals to the role",
+    "explanation": "A strong answer connects skills, role interest and learning goals."
+  },
+  {
+    "id": 10019,
+    "category": "Company Preparation",
+    "topic": "Company Preparation",
+    "question": "What should you research before an interview? (Practice Set 4) (Practice Set 20)",
+    "options": [
+      "Only salary",
+      "Company, role, products/services and official information",
+      "Nothing",
+      "Only office location"
+    ],
+    "answer": "Company, role, products/services and official information",
+    "explanation": "Use official company sources for current information."
+  },
+  {
+    "id": 20000,
+    "category": "Interview",
+    "topic": "HR",
+    "question": "Tell me about yourself.",
+    "options": [
+      "Answer confidently",
+      "Review the model answer",
+      "Use I Don\u2019t Know",
+      "Skip"
+    ],
+    "answer": "Review the model guidance in Interview Preparation.",
+    "explanation": "Give a concise truthful answer using your education, skills, projects and goals."
+  },
+  {
+    "id": 20001,
+    "category": "Interview",
+    "topic": "HR",
+    "question": "Why should we hire you?",
+    "options": [
+      "Answer confidently",
+      "Review the model answer",
+      "Use I Don\u2019t Know",
+      "Skip"
+    ],
+    "answer": "Review the model guidance in Interview Preparation.",
+    "explanation": "Give a concise truthful answer using your education, skills, projects and goals."
+  },
+  {
+    "id": 20002,
+    "category": "Interview",
+    "topic": "HR",
+    "question": "Why do you want to join our company?",
+    "options": [
+      "Answer confidently",
+      "Review the model answer",
+      "Use I Don\u2019t Know",
+      "Skip"
+    ],
+    "answer": "Review the model guidance in Interview Preparation.",
+    "explanation": "Give a concise truthful answer using your education, skills, projects and goals."
+  },
+  {
+    "id": 20003,
+    "category": "Interview",
+    "topic": "HR",
+    "question": "What are your strengths?",
+    "options": [
+      "Answer confidently",
+      "Review the model answer",
+      "Use I Don\u2019t Know",
+      "Skip"
+    ],
+    "answer": "Review the model guidance in Interview Preparation.",
+    "explanation": "Give a concise truthful answer using your education, skills, projects and goals."
+  },
+  {
+    "id": 20004,
+    "category": "Interview",
+    "topic": "HR",
+    "question": "What is one weakness you are improving?",
+    "options": [
+      "Answer confidently",
+      "Review the model answer",
+      "Use I Don\u2019t Know",
+      "Skip"
+    ],
+    "answer": "Review the model guidance in Interview Preparation.",
+    "explanation": "Give a concise truthful answer using your education, skills, projects and goals."
+  },
+  {
+    "id": 20005,
+    "category": "Interview",
+    "topic": "HR",
+    "question": "Where do you see yourself in five years?",
+    "options": [
+      "Answer confidently",
+      "Review the model answer",
+      "Use I Don\u2019t Know",
+      "Skip"
+    ],
+    "answer": "Review the model guidance in Interview Preparation.",
+    "explanation": "Give a concise truthful answer using your education, skills, projects and goals."
+  },
+  {
+    "id": 20006,
+    "category": "Interview",
+    "topic": "HR",
+    "question": "Why did you choose engineering?",
+    "options": [
+      "Answer confidently",
+      "Review the model answer",
+      "Use I Don\u2019t Know",
+      "Skip"
+    ],
+    "answer": "Review the model guidance in Interview Preparation.",
+    "explanation": "Give a concise truthful answer using your education, skills, projects and goals."
+  },
+  {
+    "id": 20007,
+    "category": "Interview",
+    "topic": "HR",
+    "question": "Are you willing to relocate?",
+    "options": [
+      "Answer confidently",
+      "Review the model answer",
+      "Use I Don\u2019t Know",
+      "Skip"
+    ],
+    "answer": "Review the model guidance in Interview Preparation.",
+    "explanation": "Give a concise truthful answer using your education, skills, projects and goals."
+  },
+  {
+    "id": 20008,
+    "category": "Interview",
+    "topic": "HR",
+    "question": "How do you handle pressure?",
+    "options": [
+      "Answer confidently",
+      "Review the model answer",
+      "Use I Don\u2019t Know",
+      "Skip"
+    ],
+    "answer": "Review the model guidance in Interview Preparation.",
+    "explanation": "Give a concise truthful answer using your education, skills, projects and goals."
+  },
+  {
+    "id": 20009,
+    "category": "Interview",
+    "topic": "HR",
+    "question": "Tell me about a failure and what you learned.",
+    "options": [
+      "Answer confidently",
+      "Review the model answer",
+      "Use I Don\u2019t Know",
+      "Skip"
+    ],
+    "answer": "Review the model guidance in Interview Preparation.",
+    "explanation": "Give a concise truthful answer using your education, skills, projects and goals."
+  },
+  {
+    "id": 20010,
+    "category": "Interview",
+    "topic": "HR",
+    "question": "How do you resolve a team conflict?",
+    "options": [
+      "Answer confidently",
+      "Review the model answer",
+      "Use I Don\u2019t Know",
+      "Skip"
+    ],
+    "answer": "Review the model guidance in Interview Preparation.",
+    "explanation": "Give a concise truthful answer using your education, skills, projects and goals."
+  },
+  {
+    "id": 20011,
+    "category": "Interview",
+    "topic": "HR",
+    "question": "How do you manage deadlines?",
+    "options": [
+      "Answer confidently",
+      "Review the model answer",
+      "Use I Don\u2019t Know",
+      "Skip"
+    ],
+    "answer": "Review the model guidance in Interview Preparation.",
+    "explanation": "Give a concise truthful answer using your education, skills, projects and goals."
+  },
+  {
+    "id": 20012,
+    "category": "Interview",
+    "topic": "HR",
+    "question": "Describe a leadership experience.",
+    "options": [
+      "Answer confidently",
+      "Review the model answer",
+      "Use I Don\u2019t Know",
+      "Skip"
+    ],
+    "answer": "Review the model guidance in Interview Preparation.",
+    "explanation": "Give a concise truthful answer using your education, skills, projects and goals."
+  },
+  {
+    "id": 20013,
+    "category": "Interview",
+    "topic": "HR",
+    "question": "What are your career goals?",
+    "options": [
+      "Answer confidently",
+      "Review the model answer",
+      "Use I Don\u2019t Know",
+      "Skip"
+    ],
+    "answer": "Review the model guidance in Interview Preparation.",
+    "explanation": "Give a concise truthful answer using your education, skills, projects and goals."
+  },
+  {
+    "id": 20014,
+    "category": "Interview",
+    "topic": "HR",
+    "question": "Why should we select you?",
+    "options": [
+      "Answer confidently",
+      "Review the model answer",
+      "Use I Don\u2019t Know",
+      "Skip"
+    ],
+    "answer": "Review the model guidance in Interview Preparation.",
+    "explanation": "Give a concise truthful answer using your education, skills, projects and goals."
+  },
+  {
+    "id": 20015,
+    "category": "Interview",
+    "topic": "Java",
+    "question": "Explain OOP principles.",
+    "options": [
+      "Answer confidently",
+      "Review the model answer",
+      "Use I Don\u2019t Know",
+      "Skip"
+    ],
+    "answer": "Review the model guidance in Interview Preparation.",
+    "explanation": "Define the concept, give a small example and mention practical use."
+  },
+  {
+    "id": 20016,
+    "category": "Interview",
+    "topic": "Java",
+    "question": "Difference between JDK, JRE and JVM.",
+    "options": [
+      "Answer confidently",
+      "Review the model answer",
+      "Use I Don\u2019t Know",
+      "Skip"
+    ],
+    "answer": "Review the model guidance in Interview Preparation.",
+    "explanation": "Define the concept, give a small example and mention practical use."
+  },
+  {
+    "id": 20017,
+    "category": "Interview",
+    "topic": "Java",
+    "question": "What is exception handling?",
+    "options": [
+      "Answer confidently",
+      "Review the model answer",
+      "Use I Don\u2019t Know",
+      "Skip"
+    ],
+    "answer": "Review the model guidance in Interview Preparation.",
+    "explanation": "Define the concept, give a small example and mention practical use."
+  },
+  {
+    "id": 20018,
+    "category": "Interview",
+    "topic": "Java",
+    "question": "ArrayList vs LinkedList?",
+    "options": [
+      "Answer confidently",
+      "Review the model answer",
+      "Use I Don\u2019t Know",
+      "Skip"
+    ],
+    "answer": "Review the model guidance in Interview Preparation.",
+    "explanation": "Define the concept, give a small example and mention practical use."
+  },
+  {
+    "id": 20019,
+    "category": "Interview",
+    "topic": "Python",
+    "question": "List vs tuple?",
+    "options": [
+      "Answer confidently",
+      "Review the model answer",
+      "Use I Don\u2019t Know",
+      "Skip"
+    ],
+    "answer": "Review the model guidance in Interview Preparation.",
+    "explanation": "Define the concept, give a small example and mention practical use."
+  }
+]

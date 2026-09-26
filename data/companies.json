@@ -1,0 +1,1916 @@
+[
+  {
+    "id": 1,
+    "name": "TCS",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.tcs.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Infosys",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.infosys.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Wipro",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.wipro.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "HCLTech",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.hcltech.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Accenture",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.accenture.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Cognizant",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.cognizant.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Capgemini",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.capgemini.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "LTIMindtree",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.ltimindtree.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Tech Mahindra",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.techmahindra.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Deloitte",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.deloitte.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "IBM",
+    "tier": "Tier 1",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.ibm.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Oracle",
+    "tier": "Tier 1",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.oracle.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Cisco",
+    "tier": "Tier 1",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.cisco.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Amazon",
+    "tier": "Tier 1",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.amazon.jobs/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Microsoft",
+    "tier": "Tier 1",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.microsoft.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Salesforce",
+    "tier": "Tier 1",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.salesforce.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Zoho",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.zoho.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Walmart",
+    "tier": "Tier 1",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://careers.walmart.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "JPMorgan Chase",
+    "tier": "Tier 1",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.jpmorganchase.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "PhonePe",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.phonepe.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Razorpay",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://razorpay.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Coforge",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Persistent Systems",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Mphasis",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Genpact",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Hexaware",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Kyndryl",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "SAP",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.sap.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Adobe",
+    "tier": "Tier 1",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.adobe.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Atlassian",
+    "tier": "Tier 1",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.atlassian.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 31,
+    "name": "ServiceNow",
+    "tier": "Tier 1",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.servicenow.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Freshworks",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.freshworks.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Bosch",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.bosch.in/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Siemens",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.siemens.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Qualcomm",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.qualcomm.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Intel",
+    "tier": "Tier 2",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.intel.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 37,
+    "name": "NVIDIA",
+    "tier": "Tier 1",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.nvidia.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Dell Technologies",
+    "tier": "Tier 3",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.dell.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 39,
+    "name": "EY",
+    "tier": "Tier 3",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.ey.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 40,
+    "name": "KPMG",
+    "tier": "Tier 3",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://kpmg.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 41,
+    "name": "PwC",
+    "tier": "Tier 3",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.pwc.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Goldman Sachs",
+    "tier": "Tier 1",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.goldmansachs.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Morgan Stanley",
+    "tier": "Tier 1",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.morganstanley.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Barclays",
+    "tier": "Tier 3",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://home.barclays/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 45,
+    "name": "HSBC",
+    "tier": "Tier 3",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.hsbc.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Mastercard",
+    "tier": "Tier 3",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.mastercard.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Visa",
+    "tier": "Tier 3",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.visa.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 48,
+    "name": "PayPal",
+    "tier": "Tier 3",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.paypal.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Flipkart",
+    "tier": "Tier 3",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.flipkartcareers.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Myntra",
+    "tier": "Tier 3",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 51,
+    "name": "Meesho",
+    "tier": "Tier 3",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Swiggy",
+    "tier": "Tier 3",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://careers.swiggy.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 53,
+    "name": "Zomato",
+    "tier": "Tier 3",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 54,
+    "name": "Ola",
+    "tier": "Tier 3",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 55,
+    "name": "Juspay",
+    "tier": "Tier 3",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 56,
+    "name": "Groww",
+    "tier": "Tier 3",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 57,
+    "name": "CRED",
+    "tier": "Tier 3",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  },
+  {
+    "id": 58,
+    "name": "Ather Energy",
+    "tier": "Tier 3",
+    "roles": [
+      "Software Engineer",
+      "Graduate Engineer Trainee",
+      "Associate Software Engineer",
+      "Developer",
+      "Analyst",
+      "QA Engineer"
+    ],
+    "official": "https://www.atherenergy.com/",
+    "study": [
+      "Aptitude",
+      "DSA / Coding",
+      "OOP",
+      "DBMS / SQL",
+      "Operating Systems",
+      "Computer Networks",
+      "Projects",
+      "Resume",
+      "HR / Communication"
+    ],
+    "prepare": [
+      "Understand fundamentals",
+      "Solve timed practice",
+      "Revise company-style questions",
+      "Prepare 2 projects",
+      "Update resume",
+      "Practice HR and technical interview"
+    ]
+  }
+]

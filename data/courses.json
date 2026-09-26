@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Java Programming",
+    "provider": "NPTEL / SWAYAM",
+    "url": "https://nptel.ac.in/courses",
+    "free": true
+  },
+  {
+    "title": "Python",
+    "provider": "freeCodeCamp",
+    "url": "https://www.freecodecamp.org/learn/",
+    "free": true
+  },
+  {
+    "title": "Full Stack Web Development",
+    "provider": "freeCodeCamp",
+    "url": "https://www.freecodecamp.org/learn/",
+    "free": true
+  },
+  {
+    "title": "SQL",
+    "provider": "W3Schools",
+    "url": "https://www.w3schools.com/sql/",
+    "free": true
+  },
+  {
+    "title": "DSA",
+    "provider": "GeeksforGeeks",
+    "url": "https://www.geeksforgeeks.org/learn-data-structures-and-algorithms-dsa-tutorial/",
+    "free": true
+  },
+  {
+    "title": "AI / ML",
+    "provider": "Google for Developers",
+    "url": "https://developers.google.com/machine-learning",
+    "free": true
+  },
+  {
+    "title": "Cloud",
+    "provider": "AWS Skill Builder",
+    "url": "https://skillbuilder.aws/",
+    "free": true
+  },
+  {
+    "title": "Cybersecurity",
+    "provider": "Cisco Networking Academy",
+    "url": "https://www.netacad.com/",
+    "free": true
+  },
+  {
+    "title": "Embedded / VLSI",
+    "provider": "NPTEL",
+    "url": "https://nptel.ac.in/",
+    "free": true
+  }
+]

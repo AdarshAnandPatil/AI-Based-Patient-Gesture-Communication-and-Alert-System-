@@ -1,0 +1,170 @@
+[
+  {
+    "id": 1,
+    "type": "Python",
+    "title": "W3Schools Python",
+    "description": "Tutorials, examples and practice",
+    "url": "https://www.w3schools.com/python/"
+  },
+  {
+    "id": 2,
+    "type": "Java",
+    "title": "W3Schools Java",
+    "description": "Java concepts and examples",
+    "url": "https://www.w3schools.com/java/"
+  },
+  {
+    "id": 3,
+    "type": "C/C++",
+    "title": "Programiz C/C++",
+    "description": "Programming tutorials and examples",
+    "url": "https://www.programiz.com/c-programming"
+  },
+  {
+    "id": 4,
+    "type": "Web",
+    "title": "MDN Web Docs",
+    "description": "HTML, CSS and JavaScript documentation",
+    "url": "https://developer.mozilla.org/"
+  },
+  {
+    "id": 5,
+    "type": "SQL",
+    "title": "W3Schools SQL",
+    "description": "SQL tutorials and examples",
+    "url": "https://www.w3schools.com/sql/"
+  },
+  {
+    "id": 6,
+    "type": "DSA",
+    "title": "GeeksforGeeks DSA",
+    "description": "Data structures and algorithms",
+    "url": "https://www.geeksforgeeks.org/learn-data-structures-and-algorithms-dsa-tutorial/"
+  },
+  {
+    "id": 100,
+    "type": "Video Lecture",
+    "title": "Apna College — C/C++",
+    "description": "Video lectures / playlist search",
+    "url": "https://www.youtube.com/results?search_query=Apna+College+C/C++"
+  },
+  {
+    "id": 101,
+    "type": "Video Lecture",
+    "title": "Apna College — Java",
+    "description": "Video lectures / playlist search",
+    "url": "https://www.youtube.com/results?search_query=Apna+College+Java"
+  },
+  {
+    "id": 102,
+    "type": "Video Lecture",
+    "title": "Apna College — Python",
+    "description": "Video lectures / playlist search",
+    "url": "https://www.youtube.com/results?search_query=Apna+College+Python"
+  },
+  {
+    "id": 103,
+    "type": "Video Lecture",
+    "title": "Apna College — JavaScript",
+    "description": "Video lectures / playlist search",
+    "url": "https://www.youtube.com/results?search_query=Apna+College+JavaScript"
+  },
+  {
+    "id": 104,
+    "type": "Video Lecture",
+    "title": "Apna College — DSA",
+    "description": "Video lectures / playlist search",
+    "url": "https://www.youtube.com/results?search_query=Apna+College+DSA"
+  },
+  {
+    "id": 105,
+    "type": "Video Lecture",
+    "title": "Apna College — SQL",
+    "description": "Video lectures / playlist search",
+    "url": "https://www.youtube.com/results?search_query=Apna+College+SQL"
+  },
+  {
+    "id": 106,
+    "type": "Video Lecture",
+    "title": "Apna College — DBMS",
+    "description": "Video lectures / playlist search",
+    "url": "https://www.youtube.com/results?search_query=Apna+College+DBMS"
+  },
+  {
+    "id": 107,
+    "type": "Video Lecture",
+    "title": "Apna College — Operating Systems",
+    "description": "Video lectures / playlist search",
+    "url": "https://www.youtube.com/results?search_query=Apna+College+Operating+Systems"
+  },
+  {
+    "id": 108,
+    "type": "Video Lecture",
+    "title": "Apna College — Computer Networks",
+    "description": "Video lectures / playlist search",
+    "url": "https://www.youtube.com/results?search_query=Apna+College+Computer+Networks"
+  },
+  {
+    "id": 109,
+    "type": "Video Lecture",
+    "title": "Apna College — OOP",
+    "description": "Video lectures / playlist search",
+    "url": "https://www.youtube.com/results?search_query=Apna+College+OOP"
+  },
+  {
+    "id": 110,
+    "type": "Video Lecture",
+    "title": "Apna College — Web Development",
+    "description": "Video lectures / playlist search",
+    "url": "https://www.youtube.com/results?search_query=Apna+College+Web+Development"
+  },
+  {
+    "id": 111,
+    "type": "Video Lecture",
+    "title": "Apna College — AI/ML",
+    "description": "Video lectures / playlist search",
+    "url": "https://www.youtube.com/results?search_query=Apna+College+AI/ML"
+  },
+  {
+    "id": 112,
+    "type": "Video Lecture",
+    "title": "Apna College — HTML/CSS",
+    "description": "Video lectures / playlist search",
+    "url": "https://www.youtube.com/results?search_query=Apna+College+HTML+CSS"
+  },
+  {
+    "id": 113,
+    "type": "Video Lecture",
+    "title": "Apna College — OS",
+    "description": "Video lectures / playlist search",
+    "url": "https://www.youtube.com/results?search_query=Apna+College+OS"
+  },
+  {
+    "id": 114,
+    "type": "Video Lecture",
+    "title": "Apna College — CN",
+    "description": "Video lectures / playlist search",
+    "url": "https://www.youtube.com/results?search_query=Apna+College+CN"
+  },
+  {
+    "id": 115,
+    "type": "Video Lecture",
+    "title": "Apna College — Cloud",
+    "description": "Video lectures / playlist search",
+    "url": "https://www.youtube.com/results?search_query=Apna+College+Cloud"
+  },
+  {
+    "id": 116,
+    "type": "Video Lecture",
+    "title": "Apna College — Cybersecurity",
+    "description": "Video lectures / playlist search",
+    "url": "https://www.youtube.com/results?search_query=Apna+College+Cybersecurity"
+  },
+  {
+    "id": 117,
+    "type": "Video Lecture",
+    "title": "Apna College — Embedded/VLSI",
+    "description": "Video lectures / playlist search",
+    "url": "https://www.youtube.com/results?search_query=Apna+College+Embedded+VLSI"
+  }
+]

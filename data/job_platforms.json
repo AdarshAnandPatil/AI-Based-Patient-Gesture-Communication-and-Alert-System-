@@ -1,0 +1,46 @@
+[
+  {
+    "name": "LinkedIn Jobs",
+    "url": "https://www.linkedin.com/jobs/"
+  },
+  {
+    "name": "Internshala",
+    "url": "https://internshala.com/"
+  },
+  {
+    "name": "Naukri",
+    "url": "https://www.naukri.com/"
+  },
+  {
+    "name": "Indeed",
+    "url": "https://in.indeed.com/"
+  },
+  {
+    "name": "Foundit",
+    "url": "https://www.foundit.in/"
+  },
+  {
+    "name": "Unstop",
+    "url": "https://unstop.com/jobs"
+  },
+  {
+    "name": "Wellfound",
+    "url": "https://wellfound.com/jobs"
+  },
+  {
+    "name": "Glassdoor",
+    "url": "https://www.glassdoor.co.in/Job/"
+  },
+  {
+    "name": "Freshersworld",
+    "url": "https://www.freshersworld.com/"
+  },
+  {
+    "name": "Apna",
+    "url": "https://apna.co/jobs"
+  },
+  {
+    "name": "Cutshort",
+    "url": "https://cutshort.io/jobs"
+  }
+]

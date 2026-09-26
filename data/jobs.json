@@ -1,0 +1,466 @@
+[
+  {
+    "id": 1,
+    "company": "TCS",
+    "role": "Software Engineer",
+    "type": "Internship",
+    "location": "India / Multiple locations",
+    "url": "https://www.tcs.com/"
+  },
+  {
+    "id": 2,
+    "company": "Infosys",
+    "role": "Graduate Engineer Trainee",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.infosys.com/"
+  },
+  {
+    "id": 3,
+    "company": "Wipro",
+    "role": "Java Developer",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.wipro.com/"
+  },
+  {
+    "id": 4,
+    "company": "HCLTech",
+    "role": "Python Developer",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.hcltech.com/"
+  },
+  {
+    "id": 5,
+    "company": "Accenture",
+    "role": "QA Engineer",
+    "type": "Internship",
+    "location": "India / Multiple locations",
+    "url": "https://www.accenture.com/"
+  },
+  {
+    "id": 6,
+    "company": "Cognizant",
+    "role": "Data Analyst",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.cognizant.com/"
+  },
+  {
+    "id": 7,
+    "company": "Capgemini",
+    "role": "Software Intern",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.capgemini.com/"
+  },
+  {
+    "id": 8,
+    "company": "LTIMindtree",
+    "role": "Web Development Intern",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.ltimindtree.com/"
+  },
+  {
+    "id": 9,
+    "company": "Tech Mahindra",
+    "role": "Software Engineer",
+    "type": "Internship",
+    "location": "India / Multiple locations",
+    "url": "https://www.techmahindra.com/"
+  },
+  {
+    "id": 10,
+    "company": "Deloitte",
+    "role": "Graduate Engineer Trainee",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.deloitte.com/"
+  },
+  {
+    "id": 11,
+    "company": "IBM",
+    "role": "Java Developer",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.ibm.com/"
+  },
+  {
+    "id": 12,
+    "company": "Oracle",
+    "role": "Python Developer",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.oracle.com/"
+  },
+  {
+    "id": 13,
+    "company": "Cisco",
+    "role": "QA Engineer",
+    "type": "Internship",
+    "location": "India / Multiple locations",
+    "url": "https://www.cisco.com/"
+  },
+  {
+    "id": 14,
+    "company": "Amazon",
+    "role": "Data Analyst",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.amazon.jobs/"
+  },
+  {
+    "id": 15,
+    "company": "Microsoft",
+    "role": "Software Intern",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.microsoft.com/"
+  },
+  {
+    "id": 16,
+    "company": "Salesforce",
+    "role": "Web Development Intern",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.salesforce.com/"
+  },
+  {
+    "id": 17,
+    "company": "Zoho",
+    "role": "Software Engineer",
+    "type": "Internship",
+    "location": "India / Multiple locations",
+    "url": "https://www.zoho.com/"
+  },
+  {
+    "id": 18,
+    "company": "Walmart",
+    "role": "Graduate Engineer Trainee",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://careers.walmart.com/"
+  },
+  {
+    "id": 19,
+    "company": "JPMorgan Chase",
+    "role": "Java Developer",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.jpmorganchase.com/"
+  },
+  {
+    "id": 20,
+    "company": "PhonePe",
+    "role": "Python Developer",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.phonepe.com/"
+  },
+  {
+    "id": 21,
+    "company": "Razorpay",
+    "role": "QA Engineer",
+    "type": "Internship",
+    "location": "India / Multiple locations",
+    "url": "https://razorpay.com/"
+  },
+  {
+    "id": 22,
+    "company": "Coforge",
+    "role": "Data Analyst",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.linkedin.com/jobs/"
+  },
+  {
+    "id": 23,
+    "company": "Persistent Systems",
+    "role": "Software Intern",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.linkedin.com/jobs/"
+  },
+  {
+    "id": 24,
+    "company": "Mphasis",
+    "role": "Web Development Intern",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.linkedin.com/jobs/"
+  },
+  {
+    "id": 25,
+    "company": "Genpact",
+    "role": "Software Engineer",
+    "type": "Internship",
+    "location": "India / Multiple locations",
+    "url": "https://www.linkedin.com/jobs/"
+  },
+  {
+    "id": 26,
+    "company": "Hexaware",
+    "role": "Graduate Engineer Trainee",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.linkedin.com/jobs/"
+  },
+  {
+    "id": 27,
+    "company": "Kyndryl",
+    "role": "Java Developer",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.linkedin.com/jobs/"
+  },
+  {
+    "id": 28,
+    "company": "SAP",
+    "role": "Python Developer",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.sap.com/"
+  },
+  {
+    "id": 29,
+    "company": "Adobe",
+    "role": "QA Engineer",
+    "type": "Internship",
+    "location": "India / Multiple locations",
+    "url": "https://www.adobe.com/"
+  },
+  {
+    "id": 30,
+    "company": "Atlassian",
+    "role": "Data Analyst",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.atlassian.com/"
+  },
+  {
+    "id": 31,
+    "company": "ServiceNow",
+    "role": "Software Intern",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.servicenow.com/"
+  },
+  {
+    "id": 32,
+    "company": "Freshworks",
+    "role": "Web Development Intern",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.freshworks.com/"
+  },
+  {
+    "id": 33,
+    "company": "Bosch",
+    "role": "Software Engineer",
+    "type": "Internship",
+    "location": "India / Multiple locations",
+    "url": "https://www.bosch.in/"
+  },
+  {
+    "id": 34,
+    "company": "Siemens",
+    "role": "Graduate Engineer Trainee",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.siemens.com/"
+  },
+  {
+    "id": 35,
+    "company": "Qualcomm",
+    "role": "Java Developer",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.qualcomm.com/"
+  },
+  {
+    "id": 36,
+    "company": "Intel",
+    "role": "Python Developer",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.intel.com/"
+  },
+  {
+    "id": 37,
+    "company": "NVIDIA",
+    "role": "QA Engineer",
+    "type": "Internship",
+    "location": "India / Multiple locations",
+    "url": "https://www.nvidia.com/"
+  },
+  {
+    "id": 38,
+    "company": "Dell Technologies",
+    "role": "Data Analyst",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.dell.com/"
+  },
+  {
+    "id": 39,
+    "company": "EY",
+    "role": "Software Intern",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.ey.com/"
+  },
+  {
+    "id": 40,
+    "company": "KPMG",
+    "role": "Web Development Intern",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://kpmg.com/"
+  },
+  {
+    "id": 41,
+    "company": "PwC",
+    "role": "Software Engineer",
+    "type": "Internship",
+    "location": "India / Multiple locations",
+    "url": "https://www.pwc.com/"
+  },
+  {
+    "id": 42,
+    "company": "Goldman Sachs",
+    "role": "Graduate Engineer Trainee",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.goldmansachs.com/"
+  },
+  {
+    "id": 43,
+    "company": "Morgan Stanley",
+    "role": "Java Developer",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.morganstanley.com/"
+  },
+  {
+    "id": 44,
+    "company": "Barclays",
+    "role": "Python Developer",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://home.barclays/"
+  },
+  {
+    "id": 45,
+    "company": "HSBC",
+    "role": "QA Engineer",
+    "type": "Internship",
+    "location": "India / Multiple locations",
+    "url": "https://www.hsbc.com/"
+  },
+  {
+    "id": 46,
+    "company": "Mastercard",
+    "role": "Data Analyst",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.mastercard.com/"
+  },
+  {
+    "id": 47,
+    "company": "Visa",
+    "role": "Software Intern",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.visa.com/"
+  },
+  {
+    "id": 48,
+    "company": "PayPal",
+    "role": "Web Development Intern",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.paypal.com/"
+  },
+  {
+    "id": 49,
+    "company": "Flipkart",
+    "role": "Software Engineer",
+    "type": "Internship",
+    "location": "India / Multiple locations",
+    "url": "https://www.flipkartcareers.com/"
+  },
+  {
+    "id": 50,
+    "company": "Myntra",
+    "role": "Graduate Engineer Trainee",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.linkedin.com/jobs/"
+  },
+  {
+    "id": 51,
+    "company": "Meesho",
+    "role": "Java Developer",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.linkedin.com/jobs/"
+  },
+  {
+    "id": 52,
+    "company": "Swiggy",
+    "role": "Python Developer",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://careers.swiggy.com/"
+  },
+  {
+    "id": 53,
+    "company": "Zomato",
+    "role": "QA Engineer",
+    "type": "Internship",
+    "location": "India / Multiple locations",
+    "url": "https://www.linkedin.com/jobs/"
+  },
+  {
+    "id": 54,
+    "company": "Ola",
+    "role": "Data Analyst",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.linkedin.com/jobs/"
+  },
+  {
+    "id": 55,
+    "company": "Juspay",
+    "role": "Software Intern",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.linkedin.com/jobs/"
+  },
+  {
+    "id": 56,
+    "company": "Groww",
+    "role": "Web Development Intern",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.linkedin.com/jobs/"
+  },
+  {
+    "id": 57,
+    "company": "CRED",
+    "role": "Software Engineer",
+    "type": "Internship",
+    "location": "India / Multiple locations",
+    "url": "https://www.linkedin.com/jobs/"
+  },
+  {
+    "id": 58,
+    "company": "Ather Energy",
+    "role": "Graduate Engineer Trainee",
+    "type": "Full-time",
+    "location": "India / Multiple locations",
+    "url": "https://www.atherenergy.com/"
+  }
+]
