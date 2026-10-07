@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MedGesture AI — Mobile Live Patient Monitor</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #0e2920 0%, #1c182c 35%, #251632 70%, #122d23 100%) fixed;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #f1faf5;
+    }
+    .mobile-header {
+      background: linear-gradient(90deg, rgba(19, 51, 38, 0.96) 0%, rgba(36, 25, 50, 0.96) 50%, rgba(27, 49, 38, 0.96) 100%);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(245, 158, 11, 0.25);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(10px);
+    }
+    .mobile-title {
+      font-size: 1.12rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #f1faf5;
+    }
+    .mobile-container {
+      padding: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Live Gesture Radar Card */
+    .live-radar-card {
+      background: linear-gradient(135deg, rgba(25, 61, 47, 0.95), rgba(37, 26, 52, 0.95));
+      border: 2px solid #10b981;
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.25);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .live-radar-card.emergency {
+      border-color: #f43f5e;
+      box-shadow: 0 0 30px rgba(244, 63, 94, 0.4);
+      background: linear-gradient(135deg, rgba(75, 12, 28, 0.95), rgba(37, 26, 52, 0.95));
+    }
+    .radar-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .radar-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      color: #34d399;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #34d399;
+      animation: pulse 1.2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.9); opacity: 0.7; }
+      50% { transform: scale(1.4); opacity: 1; box-shadow: 0 0 10px #34d399; }
+      100% { transform: scale(0.9); opacity: 0.7; }
+    }
+    .radar-gesture-name {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #f1faf5;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .radar-meta-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 0.82rem;
+    }
+    .radar-pill {
+      background: rgba(18, 45, 33, 0.85);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+      padding: 4px 10px;
+      border-radius: 6px;
+      color: #d1fae5;
+      font-weight: 600;
+    }
+
+    /* Bed status cards grid */
+    .beds-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .bed-mini-card {
+      background: linear-gradient(135deg, rgba(25, 61, 47, 0.9), rgba(37, 26, 52, 0.85));
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .bed-mini-card.active {
+      border-color: #10b981;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(25, 61, 47, 0.9));
+    }
+    .b-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #fbbf24;
+    }
+    .b-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #f1faf5;
+    }
+    .b-sub {
+      font-size: 0.72rem;
+      color: #8da698;
+    }
+
+    /* Alert cards */
+    .mobile-alert-card {
+      background: linear-gradient(135deg, rgba(25, 61, 47, 0.95), rgba(37, 26, 52, 0.95));
+      border: 1px solid rgba(245, 158, 11, 0.28);
+      border-left: 5px solid #f59e0b;
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 4px 14px rgba(10, 25, 18, 0.4);
+    }
+    .mobile-alert-card.emergency {
+      border-left-color: #f43f5e;
+      background: linear-gradient(135deg, rgba(65, 14, 26, 0.95), rgba(25, 61, 47, 0.95));
+      border-color: rgba(244, 63, 94, 0.4);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Mobile Navigation Header -->
+  <header class="mobile-header">
+    <div class="mobile-title">
+      <span style="font-size:1.4rem;">📱</span>
+      <span>MedGesture Live</span>
+    </div>
+    <div id="mobileWifiStatus" class="status-badge" style="font-size:0.75rem; padding:4px 10px;">
+      <span class="status-dot"></span> Wi-Fi Live
+    </div>
+  </header>
+
+  <main class="mobile-container">
+
+    <!-- Live Gesture Radar (Real-Time Communication Card) -->
+    <div id="liveRadarCard" class="live-radar-card">
+      <div class="radar-top">
+        <span class="radar-tag"><span class="pulse-dot"></span> Real-Time Ward Radar</span>
+        <span id="radarTime" style="font-size:0.75rem; color:#94a3b8;">Syncing...</span>
+      </div>
+      <div>
+        <div style="font-size:0.75rem; color:#94a3b8; text-transform:uppercase;">Patient Current Action</div>
+        <div id="radarGestureName" class="radar-gesture-name">
+          <span>👀</span> <span>Connecting to Camera...</span>
+        </div>
+      </div>
+      <div class="radar-meta-row">
+        <span class="radar-pill" id="radarPatient">Patient: Ramesh Kumar</span>
+        <span class="radar-pill" id="radarBed">Room 101 • Bed 1</span>
+        <span class="radar-pill" id="radarConfidence" style="color:#a5f3fc;">Confidence: 93%</span>
+      </div>
+      <div id="radarMessage" style="background:#0f172a; padding:8px 12px; border-radius:8px; font-size:0.85rem; color:#f1f5f9; font-weight:600;">
+        "Live communication stream active on local Wi-Fi."
+      </div>
+    </div>
+
+    <!-- Ward Bed Status Overview -->
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <h3 style="font-size:0.95rem; font-weight:800; color:#cbd5e1; text-transform:uppercase; letter-spacing:0.04em;">Ward Bed Status (4 Beds)</h3>
+      <span style="font-size:0.75rem; color:#67e8f9;">Wi-Fi Sync</span>
+    </div>
+    <div class="beds-grid" id="mobileBedsGrid">
+      <div class="bed-mini-card active" id="mBed1">
+        <div class="b-top"><span>Bed 1</span><span style="color:#34d399;">Normal</span></div>
+        <div class="b-name" id="mName1">Ramesh Kumar</div>
+        <div class="b-sub" id="mCond1">Room 101 • Post-Op</div>
+      </div>
+      <div class="bed-mini-card" id="mBed2">
+        <div class="b-top"><span>Bed 2</span><span style="color:#38bdf8;">Monitoring</span></div>
+        <div class="b-name" id="mName2">Priya Sharma</div>
+        <div class="b-sub" id="mCond2">Room 101 • Mobility</div>
+      </div>
+      <div class="bed-mini-card" id="mBed3">
+        <div class="b-top"><span>Bed 3</span><span style="color:#34d399;">Normal</span></div>
+        <div class="b-name" id="mName3">Anil Deshmukh</div>
+        <div class="b-sub" id="mCond3">Room 102 • Respiratory</div>
+      </div>
+      <div class="bed-mini-card" id="mBed4">
+        <div class="b-top"><span>Bed 4</span><span style="color:#fbbf24;">Attention</span></div>
+        <div class="b-name" id="mName4">Sunita Patil</div>
+        <div class="b-sub" id="mCond4">Room 102 • Cardiac</div>
+      </div>
+    </div>
+
+    <!-- Active Patient Calls & Emergency Alerts -->
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;">
+      <h3 style="font-size:0.95rem; font-weight:800; color:#cbd5e1; text-transform:uppercase; letter-spacing:0.04em;">Active Calls</h3>
+      <span id="mobilePendingCountBadge" style="font-size:0.75rem; color:#f87171; font-weight:700;">0 Pending</span>
+    </div>
+    <div id="mobileAlertsList" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="padding:20px; text-align:center; color:#94a3b8;">Loading calls...</div>
+    </div>
+
+  </main>
+
+  <script>
+    let lastAlertId = null;
+
+    async function syncMobileData() {
+      try {
+        // 1. Fetch live gesture state
+        const liveRes = await fetch('/api/live-status');
+        if (liveRes.ok) {
+          const live = await liveRes.json();
+          updateLiveRadar(live);
+        }
+
+        // 2. Fetch pending alerts
+        const alertRes = await fetch('/api/alerts?status=pending');
+        if (alertRes.ok) {
+          const alerts = await alertRes.json();
+          renderAlerts(alerts);
+        }
+
+        // 3. Fetch updated patient details
+        const patientRes = await fetch('/api/patients');
+        if (patientRes.ok) {
+          const patients = await patientRes.json();
+          updateBeds(patients);
+        }
+      } catch (err) {}
+    }
+
+    function updateLiveRadar(live) {
+      const radar = document.getElementById('liveRadarCard');
+      const nameEl = document.getElementById('radarGestureName');
+      const timeEl = document.getElementById('radarTime');
+      const patientEl = document.getElementById('radarPatient');
+      const bedEl = document.getElementById('radarBed');
+      const confEl = document.getElementById('radarConfidence');
+      const msgEl = document.getElementById('radarMessage');
+
+      const isEmerg = live.priority === 'emergency';
+      if (isEmerg) radar.classList.add('emergency');
+      else radar.classList.remove('emergency');
+
+      let icon = '🖐️';
+      if (live.currentGesture.includes('Water')) icon = '💧';
+      else if (live.currentGesture.includes('Food')) icon = '🍲';
+      else if (live.currentGesture.includes('Nurse')) icon = '🩺';
+      else if (live.currentGesture.includes('Emergency')) icon = '🚨';
+      else if (live.currentGesture.includes('Thumbs Up')) icon = '👍';
+      else if (live.currentGesture.includes('Thumbs Down')) icon = '👎';
+      else if (live.currentGesture.includes('Swipe')) icon = '👉';
+      else if (live.currentGesture.includes('OK')) icon = '✅';
+
+      nameEl.innerHTML = `<span>${icon}</span> <span>${live.currentGesture}</span>`;
+      timeEl.textContent = new Date(live.timestamp).toLocaleTimeString([], { hour:'2-digit', minute:'2-digit', second:'2-digit' });
+      patientEl.textContent = `Patient: ${live.patientName || 'Ramesh Kumar'}`;
+      bedEl.textContent = `Room ${live.room || '101'} • Bed ${live.bed || '1'}`;
+      confEl.textContent = `Confidence: ${live.confidence || 92}%`;
+
+      if (live.latestAlert && live.latestAlert.message) {
+        msgEl.textContent = `"${live.latestAlert.message}"`;
+      }
+    }
+
+    function updateBeds(patients) {
+      patients.forEach(p => {
+        if (p.id === 'P1') {
+          document.getElementById('mName1').textContent = p.name;
+          document.getElementById('mCond1').textContent = `Room ${p.room} • ${p.condition}`;
+        } else if (p.id === 'P2') {
+          document.getElementById('mName2').textContent = p.name;
+          document.getElementById('mCond2').textContent = `Room ${p.room} • ${p.condition}`;
+        } else if (p.id === 'P3') {
+          document.getElementById('mName3').textContent = p.name;
+          document.getElementById('mCond3').textContent = `Room ${p.room} • ${p.condition}`;
+        } else if (p.id === 'P4') {
+          document.getElementById('mName4').textContent = p.name;
+          document.getElementById('mCond4').textContent = `Room ${p.room} • ${p.condition}`;
+        }
+      });
+    }
+
+    function renderAlerts(alerts) {
+      const container = document.getElementById('mobileAlertsList');
+      const badge = document.getElementById('mobilePendingCountBadge');
+      badge.textContent = `${alerts.length} Pending`;
+
+      if (!alerts || alerts.length === 0) {
+        container.innerHTML = `
+          <div style="background:rgba(30, 41, 59, 0.7); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:24px 16px; text-align:center;">
+            <div style="font-size:2.2rem; margin-bottom:6px;">✅</div>
+            <div style="font-weight:800; color:#fff;">All Patient Calls Answered</div>
+            <div style="font-size:0.8rem; color:#94a3b8; margin-top:2px;">No pending calls at this time.</div>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = alerts.map(a => {
+        const isEmerg = a.priority === 'emergency';
+        const timeStr = new Date(a.timestamp).toLocaleTimeString([], { hour:'2-digit', minute:'2-digit' });
+        return `
+          <div class="mobile-alert-card ${isEmerg ? 'emergency' : ''}">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-size:1.15rem; font-weight:800; color:#fff;">${isEmerg ? '🚨' : '🔔'} ${a.requirement}</span>
+              <span style="font-size:0.75rem; color:#94a3b8;">${timeStr}</span>
+            </div>
+            <div style="display:flex; gap:8px; font-size:0.8rem; color:#cbd5e1;">
+              <span style="background:#0f172a; padding:3px 8px; border-radius:6px;"><b>${a.patient}</b></span>
+              <span style="background:#0f172a; padding:3px 8px; border-radius:6px;">Room ${a.room} • Bed ${a.bed}</span>
+              <span style="background:#0f172a; padding:3px 8px; border-radius:6px; color:#a5f3fc;">${a.confidence}%</span>
+            </div>
+            <div style="background:#0f172a; padding:8px 12px; border-radius:8px; font-size:0.85rem; color:#fff;">
+              "${a.message}"
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:4px;">
+              <button class="btn btn-teal" style="justify-content:center;" onclick="mobileAck('${a.id}')">✓ Acknowledge</button>
+              <button class="btn btn-success" style="justify-content:center;" onclick="mobileResolve('${a.id}')">✓ Resolve</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    async function mobileAck(id) {
+      await fetch(`/api/alerts/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: 'acknowledged' })
+      });
+      syncMobileData();
+    }
+
+    async function mobileResolve(id) {
+      await fetch(`/api/alerts/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: 'resolved' })
+      });
+      syncMobileData();
+    }
+
+    syncMobileData();
+    // Fast polling (every 1.5 seconds) for real-time Wi-Fi responsiveness
+    setInterval(syncMobileData, 1500);
+  </script>
+</body>
+</html>

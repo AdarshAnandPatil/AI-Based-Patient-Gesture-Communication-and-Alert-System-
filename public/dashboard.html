@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nurse Alert Dashboard — MedGesture AI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .nurse-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .nurse-stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .nurse-stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+    .nurse-stat-val {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1;
+    }
+    .nurse-stat-lbl {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg-card);
+      padding: 12px 18px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+    }
+    .filter-btn-group {
+      display: flex;
+      gap: 6px;
+    }
+    .filter-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .filter-btn.active {
+      background: var(--color-purple);
+      color: #fff;
+      border-color: var(--color-purple-dark);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <div class="nav-brand">
+      <div class="brand-icon">🩺</div>
+      <div>
+        <h1 class="brand-title">Nurse Central Station</h1>
+        <p class="brand-subtitle">Real-Time Patient Call & Emergency Monitoring</p>
+      </div>
+    </div>
+    <div class="nav-controls">
+      <div id="liveSyncStatus" class="status-badge">
+        <span class="status-dot"></span> Live Sync Active
+      </div>
+      <a href="/" class="nav-link-btn">📹 Camera Monitor</a>
+      <a href="/mobile" class="nav-link-btn" target="_blank">📱 Mobile View</a>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- Summary Statistics -->
+    <section class="nurse-stats-grid">
+      <div class="nurse-stat-card">
+        <div class="nurse-stat-icon" style="background: rgba(139, 92, 246, 0.18); color: var(--color-purple);">📊</div>
+        <div>
+          <div id="statTotal" class="nurse-stat-val">0</div>
+          <div class="nurse-stat-lbl">Total Alerts</div>
+        </div>
+      </div>
+      <div class="nurse-stat-card">
+        <div class="nurse-stat-icon" style="background: rgba(234, 179, 8, 0.18); color: var(--color-yellow);">⏳</div>
+        <div>
+          <div id="statPending" class="nurse-stat-val">0</div>
+          <div class="nurse-stat-lbl">Pending Response</div>
+        </div>
+      </div>
+      <div class="nurse-stat-card">
+        <div class="nurse-stat-icon" style="background: rgba(20, 184, 166, 0.18); color: var(--color-teal);">👀</div>
+        <div>
+          <div id="statAck" class="nurse-stat-val">0</div>
+          <div class="nurse-stat-lbl">Acknowledged</div>
+        </div>
+      </div>
+      <div class="nurse-stat-card">
+        <div class="nurse-stat-icon" style="background: rgba(16, 185, 129, 0.18); color: var(--color-green);">✅</div>
+        <div>
+          <div id="statResolved" class="nurse-stat-val">0</div>
+          <div class="nurse-stat-lbl">Resolved</div>
+        </div>
+      </div>
+      <div class="nurse-stat-card" style="border-color: rgba(239, 68, 68, 0.4);">
+        <div class="nurse-stat-icon" style="background: rgba(239, 68, 68, 0.18); color: var(--color-red);">🚨</div>
+        <div>
+          <div id="statEmergency" class="nurse-stat-val" style="color:var(--color-red);">0</div>
+          <div class="nurse-stat-lbl">Emergencies</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter & Search Bar -->
+    <section class="filter-bar">
+      <div class="filter-btn-group">
+        <button class="filter-btn active" data-filter="all">All Alerts</button>
+        <button class="filter-btn" data-filter="pending">Pending</button>
+        <button class="filter-btn" data-filter="acknowledged">Acknowledged</button>
+        <button class="filter-btn" data-filter="resolved">Resolved</button>
+        <button class="filter-btn" data-filter="emergency" style="color:var(--color-red);">🚨 Emergency Only</button>
+      </div>
+      <div>
+        <button id="refreshBtn" class="btn btn-teal" style="font-size:0.78rem;">🔄 Refresh Now</button>
+      </div>
+    </section>
+
+    <!-- Full Alert Table / Feed -->
+    <section class="panel-card">
+      <div class="panel-header">
+        <h3 class="panel-title">📋 Patient Communications Feed</h3>
+        <span id="alertCountBadge" style="font-size:0.78rem; color:var(--text-muted);">Showing all alerts</span>
+      </div>
+      <div id="dashboardAlertsList" class="alerts-list">
+        <div style="padding: 20px; text-align: center; color: var(--text-muted);">Loading alerts...</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div>MedGesture AI Nurse Dashboard • Connected via REST API</div>
+    <div>Automatic polling every 2.5 seconds</div>
+  </footer>
+
+  <script>
+    let currentFilter = 'all';
+
+    async function loadStats() {
+      try {
+        const res = await fetch('/api/stats');
+        if (!res.ok) return;
+        const stats = await res.json();
+        document.getElementById('statTotal').textContent = stats.total;
+        document.getElementById('statPending').textContent = stats.pending;
+        document.getElementById('statAck').textContent = stats.acknowledged;
+        document.getElementById('statResolved').textContent = stats.resolved;
+        document.getElementById('statEmergency').textContent = stats.emergency;
+      } catch (e) {}
+    }
+
+    async function loadAlerts() {
+      try {
+        let url = '/api/alerts';
+        if (currentFilter === 'emergency') {
+          url += '?priority=emergency';
+        } else if (currentFilter !== 'all') {
+          url += `?status=${currentFilter}`;
+        }
+        const res = await fetch(url);
+        if (!res.ok) return;
+        const alerts = await res.json();
+        renderAlerts(alerts);
+      } catch (e) {}
+    }
+
+    function renderAlerts(alerts) {
+      const list = document.getElementById('dashboardAlertsList');
+      if (!list) return;
+
+      if (!alerts || alerts.length === 0) {
+        list.innerHTML = '<div style="padding: 24px; text-align: center; color: var(--text-muted);">No matching alerts found for this filter.</div>';
+        return;
+      }
+
+      document.getElementById('alertCountBadge').textContent = `${alerts.length} total entries`;
+
+      list.innerHTML = alerts.map(a => {
+        let icon = '🔔';
+        if (a.requirement.includes('Water')) icon = '💧';
+        else if (a.requirement.includes('Food')) icon = '🍲';
+        else if (a.requirement.includes('Nurse')) icon = '🩺';
+        else if (a.requirement.includes('Emergency')) icon = '🚨';
+        else if (a.requirement.includes('Toilet')) icon = '🚻';
+        else if (a.requirement.includes('Pain')) icon = '⚡';
+        else if (a.requirement.includes('Breathing')) icon = '🫁';
+
+        const timeStr = new Date(a.timestamp).toLocaleString();
+        const priorityClass = `priority-${a.priority || 'normal'}`;
+
+        let statusBadge = `<span style="font-size: 0.72rem; padding: 3px 8px; border-radius: 4px; background: rgba(234, 179, 8, 0.15); color: var(--color-yellow); font-weight: 700;">Pending</span>`;
+        if (a.status === 'acknowledged') {
+          statusBadge = `<span style="font-size: 0.72rem; padding: 3px 8px; border-radius: 4px; background: rgba(20, 184, 166, 0.15); color: var(--color-teal); font-weight: 700;">Acknowledged</span>`;
+        } else if (a.status === 'resolved') {
+          statusBadge = `<span style="font-size: 0.72rem; padding: 3px 8px; border-radius: 4px; background: rgba(16, 185, 129, 0.15); color: var(--color-green); font-weight: 700;">Resolved</span>`;
+        }
+
+        return `
+          <div class="alert-item ${priorityClass}">
+            <div class="alert-item-left">
+              <div class="alert-icon-box">${icon}</div>
+              <div class="alert-desc">
+                <h5>${a.requirement} <span style="color:var(--color-purple); font-weight:normal;">• ${a.patient} (Room ${a.room}, Bed ${a.bed})</span></h5>
+                <p>${timeStr} • Confidence: <b>${a.confidence}%</b> • Detection: <b>${a.detectionStatus}</b></p>
+                <p style="color: var(--text-main); font-size: 0.8rem; margin-top: 2px;">💬 "${a.message}"</p>
+              </div>
+            </div>
+            <div class="alert-item-right">
+              ${statusBadge}
+              ${a.status === 'pending' ? `<button class="btn btn-teal" onclick="updateStatus('${a.id}', 'acknowledged')">Acknowledge</button>` : ''}
+              ${a.status !== 'resolved' ? `<button class="btn btn-success" onclick="updateStatus('${a.id}', 'resolved')">Resolve</button>` : ''}
+              <button class="btn btn-danger" style="padding: 4px 8px;" onclick="deleteAlert('${a.id}')" title="Delete record">🗑️</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    async function updateStatus(id, newStatus) {
+      try {
+        await fetch(`/api/alerts/${id}`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ status: newStatus })
+        });
+        loadStats();
+        loadAlerts();
+      } catch (e) {}
+    }
+
+    async function deleteAlert(id) {
+      if (!confirm('Archive this alert record?')) return;
+      try {
+        await fetch(`/api/alerts/${id}`, { method: 'DELETE' });
+        loadStats();
+        loadAlerts();
+      } catch (e) {}
+    }
+
+    // Filter clicks
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.getAttribute('data-filter');
+        loadAlerts();
+      });
+    });
+
+    document.getElementById('refreshBtn').addEventListener('click', () => {
+      loadStats();
+      loadAlerts();
+    });
+
+    // Initial load and polling
+    loadStats();
+    loadAlerts();
+    setInterval(() => {
+      loadStats();
+      loadAlerts();
+    }, 2500);
+  </script>
+</body>
+</html>
