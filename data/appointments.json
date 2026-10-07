@@ -1,0 +1,44 @@
+[
+  {
+    "id": "APT-201",
+    "patientId": "P1",
+    "patientName": "Ramesh Kumar",
+    "room": "101",
+    "bed": "1",
+    "doctor": "Dr. Sharma (Chief Surgeon)",
+    "specialty": "Post-Op Follow-up",
+    "date": "2026-10-07",
+    "time": "10:30 AM",
+    "reason": "Surgical wound check & mobility assessment",
+    "priority": "Routine",
+    "status": "Scheduled"
+  },
+  {
+    "id": "APT-202",
+    "patientId": "P2",
+    "patientName": "Priya Sharma",
+    "room": "101",
+    "bed": "2",
+    "doctor": "Dr. Verma (Physiotherapist)",
+    "specialty": "Physical Therapy",
+    "date": "2026-10-06",
+    "time": "03:00 PM",
+    "reason": "Daily limb mobility exercises & assisted walking session",
+    "priority": "Priority",
+    "status": "Scheduled"
+  },
+  {
+    "id": "APT-203",
+    "patientId": "P4",
+    "patientName": "Sunita Patil",
+    "room": "102",
+    "bed": "4",
+    "doctor": "Dr. Mehta (Cardiologist)",
+    "specialty": "Cardiology Review",
+    "date": "2026-10-06",
+    "time": "05:30 PM",
+    "reason": "Review 12-lead ECG and adjust anti-hypertensive medication",
+    "priority": "Urgent",
+    "status": "Scheduled"
+  }
+]
