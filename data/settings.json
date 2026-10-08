@@ -1,0 +1,118 @@
+{
+  "lowConfidenceThreshold": 80,
+  "confirmedConfidenceThreshold": 85,
+  "rearmSeconds": 5,
+  "emergencyConfidenceThreshold": 88,
+  "defaultLanguage": "en",
+  "sessionMinutes": 30,
+  "voiceEnabled": true,
+  "simulationEnabled": true,
+  "emergencyLocked": true,
+  "gestures": [
+    {
+      "name": "Pointing Finger",
+      "meaning": "Help Required",
+      "mode": "Hand"
+    },
+    {
+      "name": "OK Sign",
+      "meaning": "Feeling Better / OK",
+      "mode": "Hand"
+    },
+    {
+      "name": "Thumbs Up",
+      "meaning": "Feeling Better",
+      "mode": "Hand"
+    },
+    {
+      "name": "Thumbs Down",
+      "meaning": "Discomfort Reported",
+      "mode": "Hand"
+    },
+    {
+      "name": "2 Fingers",
+      "meaning": "Water Required",
+      "mode": "Hand"
+    },
+    {
+      "name": "3 Fingers",
+      "meaning": "Nurse / Doctor",
+      "mode": "Hand"
+    },
+    {
+      "name": "4 Fingers",
+      "meaning": "Toilet Assistance",
+      "mode": "Hand"
+    },
+    {
+      "name": "5 Fingers",
+      "meaning": "Emergency Assistance",
+      "mode": "Hand"
+    },
+    {
+      "name": "Eye Blink",
+      "meaning": "Attention / Communication",
+      "mode": "Eye"
+    },
+    {
+      "name": "Head Movement",
+      "meaning": "Assistance / Position Request",
+      "mode": "Head"
+    },
+    {
+      "name": "Difficulty Breathing",
+      "meaning": "Emergency Assistance",
+      "mode": "Emergency"
+    },
+    {
+      "name": "Smile",
+      "meaning": "Feeling Better",
+      "mode": "Face"
+    },
+    {
+      "name": "Frown / Distress",
+      "meaning": "Need Help",
+      "mode": "Face"
+    },
+    {
+      "name": "Open Mouth",
+      "meaning": "Breathing Distress / Emergency",
+      "mode": "Face"
+    },
+    {
+      "name": "Single Blink",
+      "meaning": "Yes / All OK",
+      "mode": "Eye"
+    },
+    {
+      "name": "Double Blink",
+      "meaning": "Need Help",
+      "mode": "Eye"
+    },
+    {
+      "name": "Triple Blink",
+      "meaning": "Emergency Assistance",
+      "mode": "Eye"
+    },
+    {
+      "name": "Head Left",
+      "meaning": "Position Change — Left",
+      "mode": "Head"
+    },
+    {
+      "name": "Head Right",
+      "meaning": "Position Change — Right",
+      "mode": "Head"
+    },
+    {
+      "name": "Head Down",
+      "meaning": "Pain / Discomfort",
+      "mode": "Head"
+    },
+    {
+      "name": "Head Shake",
+      "meaning": "Emergency Assistance",
+      "mode": "Emergency"
+    }
+  ]
+}
