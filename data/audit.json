@@ -1,0 +1,9 @@
+[
+  {
+    "id": "LOG-1791434003861",
+    "timestamp": "2026-10-08T04:33:23.861Z",
+    "user": "admin",
+    "action": "LOGIN",
+    "details": "Successful login as admin"
+  }
+]
