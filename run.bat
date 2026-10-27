@@ -1,7 +1,7 @@
 @echo off
-title AI-Based Patient Gesture Communication and Alert System
+title AI-Based Patient Gesture Communication System
 echo ==============================================================
-echo 🏥 AI-Based Patient Gesture Communication and Alert System
+echo 🏥 AI-Based Patient Gesture Communication System
 echo ==============================================================
 echo.
 echo Starting Node.js Express server on port 3000...
