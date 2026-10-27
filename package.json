@@ -1,7 +1,7 @@
 {
   "name": "ai-patient-gesture-system",
   "version": "1.0.0",
-  "description": "AI-Based Patient Gesture Communication and Alert System",
+  "description": "AI-Based Patient Gesture Communication System",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
