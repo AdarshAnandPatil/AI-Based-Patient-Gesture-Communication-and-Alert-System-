@@ -322,4 +322,4 @@ app.get('/camera',(_,res)=>res.sendFile(path.join(__dirname,'public','camera.htm
 app.get('/nurse',(_,res)=>res.sendFile(path.join(__dirname,'public','dashboard.html')));
 app.get('/mobile',(_,res)=>res.sendFile(path.join(__dirname,'public','mobile.html')));
 
-app.listen(PORT,'0.0.0.0',()=>{ console.log(`\n🏥 AI-Based Patient Gesture Communication & Alert System`); console.log(`Local: http://localhost:${PORT}`); console.log(`Dashboard: http://${localIp()}:${PORT}/dashboard`); console.log(`Mobile: http://${localIp()}:${PORT}/mobile`); });
+app.listen(PORT,'0.0.0.0',()=>{ console.log(`\n🏥 AI-Based Patient Gesture Communication System`); console.log(`Local: http://localhost:${PORT}`); console.log(`Dashboard: http://${localIp()}:${PORT}/dashboard`); console.log(`Mobile: http://${localIp()}:${PORT}/mobile`); });
