@@ -148,13 +148,15 @@ async function addUser(role='admin'){
     <label>Display name<input name="name" required placeholder="${isFamily?'e.g. Ravi Family':''}"></label>
     <input type="hidden" name="role" value="${role}">
     <label>Password (min 8 chars)<input name="password" type="password" minlength="8" required></label>
-    ${isFamily?`<label style="grid-column:1/-1">Link to patient<select name="linkedPatientId" required><option value="">— Select patient —</option>${patientOpts}</select></label>`:''}
+      ${isFamily?`<label style="grid-column:1/-1">Link to patient<select name="linkedPatientId"><option value="">— Select patient —</option>${patientOpts}</select></label>`:''}
   </div>
-  <div class="form-actions"><button type="button" class="ghost-btn" onclick="closeModal()">Cancel</button><button class="primary-btn">Create account</button></div>
+  <div class="form-actions"><button type="button" class="ghost-btn" onclick="closeModal()">Cancel</button><button type="button" class="primary-btn" id="createUserBtn">Create account</button></div>
   </form>`);
-  document.getElementById('userForm').onsubmit=async e=>{
-    e.preventDefault();
-    const b=Object.fromEntries(new FormData(e.target).entries());
+  document.getElementById('createUserBtn').onclick=async()=>{
+    const form=document.getElementById('userForm');
+    const b=Object.fromEntries(new FormData(form).entries());
+    if(!b.username||!b.username.trim()){toast('Enter a username','warn');return;}
+    if(!b.password||b.password.length<8){toast('Password must be at least 8 characters','warn');return;}
     if(isFamily&&!b.linkedPatientId){toast('Please select a patient to link','warn');return;}
     try{
       await api('/api/users',{method:'POST',headers:{...headers()},body:JSON.stringify(b)});
@@ -163,7 +165,7 @@ async function addUser(role='admin'){
       render();
     }catch(x){toast(x.message,'error');}
   };
-}
+                                                                  }
 async function removeUser(username){if(!confirm('Remove this account?'))return;try{await api('/api/users/'+encodeURIComponent(username),{method:'DELETE'});toast('User removed','success');render()}catch(x){toast(x.message,'error')}}
 function patientForm(p={}){return `<form id="patientForm"><div class="modal-title">${p.id?'Edit Patient':'Admit New Patient'}</div><div class="form-grid"><label>Patient ID<input name="id" value="${esc(p.id||'')}" placeholder="Auto-generated if blank" ${p.id?'readonly':''}></label><label>Full name<input name="name" required value="${esc(p.name||'')}"></label><label>Age<input name="age" type="number" value="${esc(p.age||'')}"></label><label>Gender<select name="gender"><option>Male</option><option ${p.gender==='Female'?'selected':''}>Female</option><option ${p.gender==='Other'?'selected':''}>Other</option></select></label><label>Room<input name="room" required value="${esc(p.room||'101')}"></label><label>Bed<input name="bed" required value="${esc(p.bed||'1')}"></label><label>Condition<input name="condition" value="${esc(p.condition||'')}"></label><label>Status<select name="status"><option ${p.status==='Normal'?'selected':''}>Normal</option><option ${p.status==='Monitoring'?'selected':''}>Monitoring</option><option ${p.status==='Attention'?'selected':''}>Attention</option></select></label><label>Assigned doctor<input name="doctor" value="${esc(p.doctor||'')}"></label><label>Assigned nurse<input name="nurse" value="${esc(p.nurse||'')}"></label><label>Emergency contact<input name="emergencyContact" value="${esc(p.emergencyContact||'')}"></label><label>Priority<select name="priority"><option ${p.priority==='Normal'?'selected':''}>Normal</option><option ${p.priority==='Priority'?'selected':''}>Priority</option><option ${p.priority==='Emergency'?'selected':''}>Emergency</option></select></label><label class="wide">Communication preferences<input name="communication" value="${esc((p.communication||[]).join(', '))}" placeholder="Pointing Finger, OK Sign, Eye Blink"></label><label class="wide">Notes<textarea name="notes">${esc(p.notes||'')}</textarea></label></div><div class="form-actions"><button type="button" class="ghost-btn" onclick="closeModal()">Cancel</button><button class="primary-btn" type="submit">Save patient</button></div></form>`}
 function editPatient(id){const p=state.patients.find(x=>x.id===id);modal(patientForm(p));document.getElementById('patientForm').onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target);const b=Object.fromEntries(f.entries());b.communication=b.communication.split(',').map(x=>x.trim()).filter(Boolean);try{await api('/api/patients/'+id,{method:'PUT',headers:{...headers()},body:JSON.stringify(b)});closeModal();toast('Patient details updated','success');render();}catch(x){toast(x.message,'error')}}}
