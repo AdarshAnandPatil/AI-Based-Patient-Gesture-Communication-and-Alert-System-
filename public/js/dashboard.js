@@ -139,7 +139,10 @@ function adminPage(){return `${shell('Admin, Security & Audit','ADMIN-ONLY ACCES
 <div class="mini-callout"><b>📱 Family portal address</b><span id="familyLink" style="word-break:break-all;font-weight:700;color:#7c3aed">Loading…</span><br><small style="color:#6a587d;margin-top:4px;display:block">Family members open this on their phone and sign in with the account you create above.</small></div></section>
 <section class="panel"><div class="panel-head"><div><b>Audit log</b><span>Security-sensitive actions and communication workflow events.</span></div></div><div id="auditList" class="audit-list">Loading…</div></section>`}
 async function addUser(role='admin'){
-  const patientOpts=state.patients.map(p=>`<option value="${esc(p.id)}">${esc(p.name)} — Room ${esc(p.room)} Bed ${esc(p.bed)}</option>`).join('');
+  if(role==='family'&&(!state.patients||!state.patients.length)){
+    try{state.patients=await api('/api/patients');}catch(x){toast('Could not load patients','error');return;}
+  }
+  const patientOpts=(state.patients||[]).map(p=>`<option value="${esc(p.id)}">${esc(p.name)} — Room ${esc(p.room)} Bed ${esc(p.bed)}</option>`).join('');
   const isFamily=role==='family';
   modal(`<form id="userForm"><div class="modal-title">${isFamily?'Create Family Account':'Create Admin Account'}</div>
   ${isFamily?`<div class="mini-callout" style="margin-bottom:12px"><b>📱 Family accounts</b><span>Family members sign in at <b>/family</b> and can only see their linked patient's signals and alerts.</span></div>`:''}
