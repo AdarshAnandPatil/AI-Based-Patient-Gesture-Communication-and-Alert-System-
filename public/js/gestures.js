@@ -142,6 +142,7 @@ const GestureEngine = {
   classify(lm, key = 'default', now = Date.now()) {
     const f = this.analyse(lm);
     const { st } = f;
+    console.log('CALL FAMILY DEBUG:', { scores: f.sc,states: st});
     const stability = this.stability(lm, key);
     const fourFolded = st.index !== 'ext' && st.middle !== 'ext' && st.ring !== 'ext' && st.pinky !== 'ext';
     const fourCurl = ['index', 'middle', 'ring', 'pinky'].filter(k => st[k] === 'curl').length;
@@ -160,21 +161,18 @@ const GestureEngine = {
       if (f.thumbUp) return this.makeResult('THUMBS_UP', 'Thumbs Up / Feeling Better', 'normal', 'Patient reports feeling better / affirmative response.', this.conf(cert, stability, 3));
       if (f.thumbDown) return this.makeResult('THUMBS_DOWN', 'Thumbs Down / Discomfort', 'attention', 'Patient reports discomfort or a negative state.', this.conf(cert, stability, 3));
     }
-        // CALL FAMILY: thumb and little finger extended
-    if (
-      st.thumb === 'ext' &&
-      st.index === 'curl' &&
-      st.middle === 'curl' &&
-      st.ring === 'curl' &&
-      st.pinky === 'ext'
-    ) {
-      const cert = this.certainty(f, {
-        thumb: 'ext',
-        index: 'curl',
-        middle: 'curl',
-        ring: 'curl',
-        pinky: 'ext'
-      });
+    
+    // CALL FAMILY: thumb + pinky extended, other fingers folded
+    // Use landmark scores with gesture-specific tolerances.
+    const callFamilyPose =
+      f.sc.thumb >= 0.48 &&
+      f.sc.pinky >= 0.55 &&
+      f.sc.index < 0.65 &&
+      f.sc.middle < 0.65 &&
+      f.sc.ring < 0.65;
+
+    if (callFamilyPose) {
+      const cert = 0.85;
 
       return this.makeResult(
         'CALL_FAMILY',
