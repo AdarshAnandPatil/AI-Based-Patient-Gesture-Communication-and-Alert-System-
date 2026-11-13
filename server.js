@@ -111,6 +111,7 @@ const defaultSettings = {
     {name:'3 Fingers',meaning:'Nurse / Doctor',mode:'Hand'},
     {name:'4 Fingers',meaning:'Toilet Assistance',mode:'Hand'},
     {name:'5 Fingers',meaning:'Emergency Assistance',mode:'Hand'},
+    {name:'Call Family',meaning:'Family Contact',mode:'Hand'},
     {name:'Eye Blink',meaning:'Attention / Communication',mode:'Eye'},
     {name:'Head Movement',meaning:'Assistance / Position Request',mode:'Head'},
     {name:'Difficulty Breathing',meaning:'Emergency Assistance',mode:'Emergency'}
