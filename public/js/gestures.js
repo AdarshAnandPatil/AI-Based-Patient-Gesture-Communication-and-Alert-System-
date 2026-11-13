@@ -182,6 +182,51 @@ const GestureEngine = {
         this.conf(cert, stability, 3)
       );
     }
+    
+    // FOOD REQUIRED: bring all five fingertips together
+
+    const tips = [4, 8, 12, 16, 20];
+
+    // Calculate the centre of all five fingertips
+    const center = {
+      x: tips.reduce((sum, i) => sum + lm[i].x, 0) / 5,
+      y: tips.reduce((sum, i) => sum + lm[i].y, 0) / 5,
+      z: tips.reduce((sum, i) => sum + (lm[i].z || 0), 0) / 5
+    };
+
+    // Check how closely all fingertips are gathered
+    const maxTipDistance = Math.max(
+      ...tips.map(i => this.d3(lm[i], center))
+    );
+
+    const foldedCount = [
+      st.index,
+      st.middle,
+      st.ring,
+      st.pinky
+    ].filter(s => s !== 'ext').length;
+
+    const foodPose =
+      maxTipDistance / f.scale < 0.45 &&
+      foldedCount >= 3;
+
+    if (foodPose) {
+      const cert = this.certainty(f, {
+        index: 'curl',
+        middle: 'curl',
+        ring: 'curl',
+        pinky: 'curl'
+      });
+
+      return this.makeResult(
+        'FOOD',
+        'Food Required',
+        'normal',
+        'Patient requests food.',
+        this.conf(cert, stability, 3)
+      );
+    }
+
 
     // 3) Resting fist (no strong thumb direction): intentionally NOT a signal
     if (fourCurl >= 3 && fourFolded) return { type: 'neutral', gestureCode: 'REST_FIST', requirement: 'Resting hand', confidence: 0 };
