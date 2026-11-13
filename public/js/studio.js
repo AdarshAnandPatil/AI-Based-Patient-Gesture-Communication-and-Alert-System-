@@ -11,6 +11,7 @@ const SIGNAL_GUIDE = {
     { i: '🤟', n: '3 Fingers', m: 'Nurse / Doctor', how: 'Index + middle + ring, little finger folded.', p: 'attention' },
     { i: '🖖', n: '4 Fingers', m: 'Toilet', how: 'Four fingers up, thumb tucked into the palm.', p: 'attention' },
     { i: '✋', n: '5 Fingers', m: 'Emergency', how: 'Open palm, all five fingers spread.', p: 'emergency' },
+    { i: '🤙', n: 'Call Family', m: 'Family Contact', how: 'Extend thumb and little finger. Fold index, middle and ring fingers. Hold steadily.', p: 'normal' },
     { i: '🫁', n: 'Palm push–pull', m: 'Difficulty Breathing', how: 'Open palm, move it toward and away from the camera 2–3 times.', p: 'emergency' }
   ],
   face: [
