@@ -151,6 +151,7 @@ classify(lm, key = 'default', now = Date.now()) {
 
     const stability = this.stability(lm, key);
 
+    
     // FOOD REQUIRED: all five fingertips gathered together
 
     const foodTips = [4, 8, 12, 16, 20];
@@ -170,37 +171,24 @@ classify(lm, key = 'default', now = Date.now()) {
       }
     }
 
-    const foodPose =
-      maxFoodTipDistance / f.scale < 0.55;
+    const foodDistance = maxFoodTipDistance / f.scale;
+    const foodPose = foodDistance < 0.75;
+
+    console.log('FOOD DEBUG:', {
+      foodDistance: foodDistance.toFixed(3),
+      foodPose,
+      stability
+    });
 
     if (foodPose) {
-      const cert = this.clamp01(
-        1 - (maxFoodTipDistance / f.scale) / 0.55
-      );
-
       return this.makeResult(
         'FOOD',
         'Food Required',
         'normal',
         'Patient requests food.',
-        this.conf(cert, stability, 3)
+        this.conf(0.85, stability, 3)
       );
     }
-
-    const fourFolded =
-      st.index !== 'ext' &&
-      st.middle !== 'ext' &&
-      st.ring !== 'ext' &&
-      st.pinky !== 'ext';
-
-    const fourCurl = [
-      'index', 'middle', 'ring', 'pinky'
-    ].filter(k => st[k] === 'curl').length;
-
-    const extCount = [
-      'index', 'middle', 'ring', 'pinky'
-    ].filter(k => st[k] === 'ext').length;
-
 
     // 1) OK sign: thumb-index ring + the other three fingers raised
     if (f.pinch < 0.42 && st.middle === 'ext' && (st.ring === 'ext' || st.pinky === 'ext') && st.index !== 'ext') {
