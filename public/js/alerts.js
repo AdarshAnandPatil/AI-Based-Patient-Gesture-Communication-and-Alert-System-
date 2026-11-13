@@ -19,7 +19,7 @@ const AlertManager = {
   },
 
   iconFor(text = '') {
-    const map = [['Breathing', '🫁'], ['Shake', '🚨'], ['Emergency', '🚨'], ['Water', '💧'], ['Food', '🍲'], ['Nurse', '🩺'], ['Toilet', '🚻'], ['Thumbs Up', '👍'], ['Thumbs Down', '👎'], ['OK', '✅'], ['Pointing', '👉'], ['Help', '🆘'], ['Blink', '👁️'], ['Head', '↔️'], ['Smile', '😊'], ['Frown', '😟'], ['Mouth', '😮'], ['Pain', '⚡']];
+    const map = [['Call Family', '📞'],['Breathing', '🫁'], ['Shake', '🚨'], ['Emergency', '🚨'], ['Water', '💧'], ['Food', '🍲'], ['Nurse', '🩺'], ['Toilet', '🚻'], ['Thumbs Up', '👍'], ['Thumbs Down', '👎'], ['OK', '✅'], ['Pointing', '👉'], ['Help', '🆘'], ['Blink', '👁️'], ['Head', '↔️'], ['Smile', '😊'], ['Frown', '😟'], ['Mouth', '😮'], ['Pain', '⚡']];
     for (const [k, v] of map) if (text.includes(k)) return v;
     return '🔔';
   },
