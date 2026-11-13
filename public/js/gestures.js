@@ -163,14 +163,8 @@ const GestureEngine = {
 
     // 3) Resting fist (no strong thumb direction): intentionally NOT a signal
     if (fourCurl >= 3 && fourFolded) return { type: 'neutral', gestureCode: 'REST_FIST', requirement: 'Resting hand', confidence: 0 };
-
-    // 4) Pointing finger: only the index is straight; other three folded; thumb unrestricted
-    if (st.index === 'ext' && st.middle === 'curl' && st.ring !== 'ext' && st.pinky !== 'ext') {
-      const cert = this.certainty(f, { index: 'ext', middle: 'curl', ring: 'curl', pinky: 'curl' });
-      return this.makeResult('POINTING_FINGER', 'Help Required / Pointing Finger', 'attention', 'Patient requests assistance using the pointing-finger signal.', this.conf(cert, stability, 3), { fingerCount: 1 });
-    }
     
-    // 4A) Call Family: thumb and pinky extended;
+    // Call Family: thumb and little finger extended;
     // index, middle and ring fingers folded.
     if (
       st.thumb === 'ext' &&
@@ -196,7 +190,11 @@ const GestureEngine = {
       );
     }
 
-
+    // 4) Pointing finger: only the index is straight; other three folded; thumb unrestricted
+    if (st.index === 'ext' && st.middle === 'curl' && st.ring !== 'ext' && st.pinky !== 'ext') {
+      const cert = this.certainty(f, { index: 'ext', middle: 'curl', ring: 'curl', pinky: 'curl' });
+      return this.makeResult('POINTING_FINGER', 'Help Required / Pointing Finger', 'attention', 'Patient requests assistance using the pointing-finger signal.', this.conf(cert, stability, 3), { fingerCount: 1 });
+    }
     // 5) Finger counting (index..pinky). Thumb matters only to separate 4 from 5.
     const only = (names) => ['index', 'middle', 'ring', 'pinky'].every(k => names.includes(k) ? st[k] === 'ext' : st[k] !== 'ext');
     if (extCount === 4 && st.index === 'ext' && st.middle === 'ext' && st.ring === 'ext' && st.pinky === 'ext') {
