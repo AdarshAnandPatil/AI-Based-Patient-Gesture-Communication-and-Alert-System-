@@ -48,6 +48,7 @@ const VoiceManager = {
   translations: {
     'Help Required / Pointing Finger': { en:'Patient requests assistance.', kn:'ರೋಗಿ ಸಹಾಯವನ್ನು ಕೇಳುತ್ತಿದ್ದಾರೆ.', hi:'रोगी सहायता का अनुरोध कर रहे हैं।' },
     'OK Sign / Feeling Better': { en:'Patient reports feeling better.', kn:'ರೋಗಿ ಉತ್ತಮವಾಗಿದ್ದಾರೆ ಎಂದು ಸೂಚಿಸುತ್ತಿದ್ದಾರೆ.', hi:'रोगी बेहतर महसूस कर रहे हैं।' },
+    'Call Family': {en: 'Patient requests to speak with family.',kn: 'ರೋಗಿಯು ಕುಟುಂಬದವರೊಂದಿಗೆ ಮಾತನಾಡಲು ಬಯಸುತ್ತಾರೆ.',hi: 'रोगी अपने परिवार से बात करना चाहते हैं।'},
     'Single Blink — Yes / OK': { en:'Patient answers yes, all OK.', kn:'ರೋಗಿ ಹೌದು, ಎಲ್ಲವೂ ಸರಿ ಎಂದು ಸೂಚಿಸಿದ್ದಾರೆ.', hi:'रोगी हाँ, सब ठीक है का संकेत दे रहे हैं।' },
     'Double Blink — Need Help': { en:'Patient needs help.', kn:'ರೋಗಿಗೆ ಸಹಾಯ ಬೇಕಾಗಿದೆ.', hi:'रोगी को सहायता चाहिए।' },
     'Triple Blink — Emergency': { en:'Emergency! Immediate medical assistance required.', kn:'ತುರ್ತು ಪರಿಸ್ಥಿತಿ! ತಕ್ಷಣದ ವೈದ್ಯಕೀಯ ನೆರವು ಬೇಕಾಗಿದೆ.', hi:'आपातकालीन स्थिति! तत्काल चिकित्सा सहायता की आवश्यकता है।' },
@@ -129,6 +130,7 @@ const VoiceManager = {
   },
 
   regionalTranslations: {
+    'Call Family': {te: 'రోగి కుటుంబ సభ్యులతో మాట్లాడాలని కోరుతున్నారు.',ta: 'நோயாளி குடும்பத்தினருடன் பேச விரும்புகிறார்.'},
     'Help Required / Pointing Finger': { te:'రోగికి సహాయం కావాలి.', ta:'நோயாளிக்கு உதவி தேவை.' },
     'Help Required': { te:'రోగికి సహాయం కావాలి.', ta:'நோயாளிக்கு உதவி தேவை.' },
     'Feeling Better / OK': { te:'రోగి బాగున్నట్లు తెలియజేస్తున్నారు.', ta:'நோயாளர் நலமாக இருப்பதாக தெரிவிக்கிறார்.' },
