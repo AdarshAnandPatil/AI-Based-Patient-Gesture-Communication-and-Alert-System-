@@ -160,12 +160,7 @@ const GestureEngine = {
       if (f.thumbUp) return this.makeResult('THUMBS_UP', 'Thumbs Up / Feeling Better', 'normal', 'Patient reports feeling better / affirmative response.', this.conf(cert, stability, 3));
       if (f.thumbDown) return this.makeResult('THUMBS_DOWN', 'Thumbs Down / Discomfort', 'attention', 'Patient reports discomfort or a negative state.', this.conf(cert, stability, 3));
     }
-
-    // 3) Resting fist (no strong thumb direction): intentionally NOT a signal
-    if (fourCurl >= 3 && fourFolded) return { type: 'neutral', gestureCode: 'REST_FIST', requirement: 'Resting hand', confidence: 0 };
-    
-    // Call Family: thumb and little finger extended;
-    // index, middle and ring fingers folded.
+        // CALL FAMILY: thumb and little finger extended
     if (
       st.thumb === 'ext' &&
       st.index === 'curl' &&
@@ -189,6 +184,9 @@ const GestureEngine = {
         this.conf(cert, stability, 3)
       );
     }
+
+    // 3) Resting fist (no strong thumb direction): intentionally NOT a signal
+    if (fourCurl >= 3 && fourFolded) return { type: 'neutral', gestureCode: 'REST_FIST', requirement: 'Resting hand', confidence: 0 };
 
     // 4) Pointing finger: only the index is straight; other three folded; thumb unrestricted
     if (st.index === 'ext' && st.middle === 'curl' && st.ring !== 'ext' && st.pinky !== 'ext') {
