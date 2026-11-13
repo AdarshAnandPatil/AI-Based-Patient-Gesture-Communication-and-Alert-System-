@@ -104,6 +104,7 @@ const defaultSettings = {
   gestures:[
     {name:'Pointing Finger',meaning:'Help Required',mode:'Hand'},
     {name:'OK Sign',meaning:'Feeling Better / OK',mode:'Hand'},
+    {name:'Call Family',meaning:'Patient requests family contact',mode:'Hand'},
     {name:'Thumbs Up',meaning:'Feeling Better',mode:'Hand'},
     {name:'Thumbs Down',meaning:'Discomfort Reported',mode:'Hand'},
     {name:'2 Fingers',meaning:'Water Required',mode:'Hand'},
@@ -430,6 +431,7 @@ app.post('/api/simulate',(req,res)=>{
   const map={
     'Pointing Finger':['Help Required','attention','Patient requests assistance.','hand_gesture'],
     'OK Sign':['Feeling Better / OK','normal','Patient communicates that they are OK.','hand_gesture'],
+    'Call Family': ['Call Family','normal','Patient requests to speak with family.','hand_gesture'],
     'Thumbs Up':['Feeling Better','normal','Patient gives an affirmative response.','hand_gesture'],
     'Thumbs Down':['Discomfort Reported','attention','Patient reports discomfort.','hand_gesture'],
     '2 Fingers':['Water Required','attention','Patient requests water.','hand_gesture'],
