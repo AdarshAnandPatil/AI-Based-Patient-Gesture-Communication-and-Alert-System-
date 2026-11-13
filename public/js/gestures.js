@@ -169,6 +169,34 @@ const GestureEngine = {
       const cert = this.certainty(f, { index: 'ext', middle: 'curl', ring: 'curl', pinky: 'curl' });
       return this.makeResult('POINTING_FINGER', 'Help Required / Pointing Finger', 'attention', 'Patient requests assistance using the pointing-finger signal.', this.conf(cert, stability, 3), { fingerCount: 1 });
     }
+      
+// 4A) Food Request: thumb + pinky extended;
+// index, middle and ring fingers folded.
+if (
+  st.thumb === 'ext' &&
+  st.index === 'curl' &&
+  st.middle === 'curl' &&
+  st.ring === 'curl' &&
+  st.pinky === 'ext'
+) {
+  const cert = this.certainty(f, {
+    thumb: 'ext',
+    index: 'curl',
+    middle: 'curl',
+    ring: 'curl',
+    pinky: 'ext'
+  });
+
+  return this.makeResult(
+    'FOOD_REQUEST',
+    'Food Required',
+    'attention',
+    'Patient requests food.',
+    this.conf(cert, stability, 3)
+  );
+}
+
+
 
     // 5) Finger counting (index..pinky). Thumb matters only to separate 4 from 5.
     const only = (names) => ['index', 'middle', 'ring', 'pinky'].every(k => names.includes(k) ? st[k] === 'ext' : st[k] !== 'ext');
