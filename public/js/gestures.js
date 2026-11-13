@@ -140,55 +140,15 @@ const GestureEngine = {
 
   /** Classify ONE frame. Returns a candidate result, {type:'neutral'} (resting hand) or {type:'ambiguous'}. */
   
-classify(lm, key = 'default', now = Date.now()) {
+  classify(lm, key = 'default', now = Date.now()) {
     const f = this.analyse(lm);
     const { st } = f;
-
-    console.log('CALL FAMILY DEBUG:', {
-      scores: f.sc,
-      states: st
-    });
-
+    console.log('CALL FAMILY DEBUG:', { scores: f.sc,states: st});
     const stability = this.stability(lm, key);
+    const fourFolded = st.index !== 'ext' && st.middle !== 'ext' && st.ring !== 'ext' && st.pinky !== 'ext';
+    const fourCurl = ['index', 'middle', 'ring', 'pinky'].filter(k => st[k] === 'curl').length;
+    const extCount = ['index', 'middle', 'ring', 'pinky'].filter(k => st[k] === 'ext').length;
 
-    
-    // FOOD REQUIRED: all five fingertips gathered together
-
-    const foodTips = [4, 8, 12, 16, 20];
-    let maxFoodTipDistance = 0;
-
-    for (let i = 0; i < foodTips.length; i++) {
-      for (let j = i + 1; j < foodTips.length; j++) {
-        const distance = this.d3(
-          lm[foodTips[i]],
-          lm[foodTips[j]]
-        );
-
-        maxFoodTipDistance = Math.max(
-          maxFoodTipDistance,
-          distance
-        );
-      }
-    }
-
-    const foodDistance = maxFoodTipDistance / f.scale;
-    const foodPose = foodDistance < 0.75;
-
-    console.log('FOOD DEBUG:', {
-      foodDistance: foodDistance.toFixed(3),
-      foodPose,
-      stability
-    });
-
-    if (foodPose) {
-      return this.makeResult(
-        'FOOD',
-        'Food Required',
-        'normal',
-        'Patient requests food.',
-        this.conf(0.85, stability, 3)
-      );
-    }
 
     // 1) OK sign: thumb-index ring + the other three fingers raised
     if (f.pinch < 0.42 && st.middle === 'ext' && (st.ring === 'ext' || st.pinky === 'ext') && st.index !== 'ext') {
